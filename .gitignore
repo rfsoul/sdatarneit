@@ -1,7 +1,8 @@
-# Original reference video (retain locally, never commit).
+# Ignore an obsolete root-level copy; the reference master is tracked with LFS.
 /ref/Al-Social St-Tarneit-DFH Full.mp4
 # Reference masters and working files are not deployment assets.
-/ref/orig/
+/ref/orig/*
+!/ref/orig/Al-Social St-Tarneit-DFH Full.mp4
 /ref/processed/
 /tmp/
 /dist/

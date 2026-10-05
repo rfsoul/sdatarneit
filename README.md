@@ -36,7 +36,7 @@ python scripts/check_site.py
 - `ref/production/`: selected source media. All currently selected stills are included. Two of those are nearby images and also appear in the nearby section.
 - `dist/`: generated public site. Only this directory is served. Do not serve the repository root.
 
-The original 479 MB walkthrough and working reference files are excluded from Git and the Docker build context. Only the selected 32.49 MB video is copied into the public build. WebP images are generated at three widths; complete original-resolution stills are not copied publicly. Existing source files are not modified.
+The original 479 MB walkthrough is stored with Git LFS at `ref/orig/Al-Social St-Tarneit-DFH Full.mp4`. Install Git LFS and run `git lfs pull` after cloning if you need the master locally. It remains excluded from the Docker build context and public website. Other working reference files are excluded from Git. Only the selected 32.49 MB video is copied into the public build. WebP images are generated at three widths; complete original-resolution stills are not copied publicly. Existing source files are not modified.
 
 ## Enquiries
 
