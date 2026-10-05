@@ -1,0 +1,12 @@
+{
+  "name": "sdatarneit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python scripts/build.py",
+    "start": "node server.mjs",
+    "test": "node --test tests/server.test.mjs"
+  },
+  "engines": {"node": ">=22"}
+}

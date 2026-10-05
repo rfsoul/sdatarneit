@@ -1,0 +1,13 @@
+# Original reference video (retain locally, never commit).
+/ref/Al-Social St-Tarneit-DFH Full.mp4
+# Reference masters and working files are not deployment assets.
+/ref/orig/
+/ref/processed/
+/tmp/
+/dist/
+/node_modules/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.log

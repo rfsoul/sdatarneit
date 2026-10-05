@@ -1,0 +1,13 @@
+**
+!Dockerfile
+!requirements.txt
+!server.mjs
+!scripts/
+!scripts/**
+!config/
+!config/**
+!src/
+!src/**
+!ref/
+!ref/production/
+!ref/production/**
