@@ -12,3 +12,7 @@
 !.env.example
 __pycache__/
 *.log
+/enquiries/
+/data/
+*.json.tmp
+/.playwright-mcp/

@@ -5,10 +5,11 @@ services:
     ports:
       - "127.0.0.1:8085:8085"
     environment:
-      ENQUIRY_WEBHOOK_URL: ${ENQUIRY_WEBHOOK_URL:-}
-      ENQUIRY_WEBHOOK_TOKEN: ${ENQUIRY_WEBHOOK_TOKEN:-}
+      ENQUIRIES_DIR: /data/enquiries
       ALLOWED_ORIGINS: https://sdatarneit.au
       TRUST_PROXY: ${TRUST_PROXY:-false}
+    volumes:
+      - enquiries:/data/enquiries
     read_only: true
     cap_drop: [ALL]
     security_opt: [no-new-privileges:true]
@@ -17,3 +18,5 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
+volumes:
+  enquiries:

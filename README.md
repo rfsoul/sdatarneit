@@ -1,61 +1,50 @@
 # SDA Tarneit
 
-First release of **https://sdatarneit.au**, showcasing one actual SDA home on Social Street, Tarneit VIC 3029. This is a lightweight, static HTML site with an optional Node enquiry-delivery endpoint. Hosting target: **BTower Linux through the existing Cloudflare Tunnel**.
+**https://sdatarneit.au** presents the High Physical Support SDA home available for rent on Social Street, Tarneit VIC 3029. It has two participant bedrooms with ensuites, a separate overnight onsite assistance room, three shower bathrooms, shared living spaces, a covered alfresco and a double garage.
 
-## Local preview
+The existing static HTML site and Node server run on BTower through Cloudflare Tunnel. The enquiry form saves submissions as private persistent JSON files for the owner to review. Visitors can also email `enquiries@sdatarneit.au` directly; the owner's personal email address and phone number are not published.
 
-Requires Python 3.10+ with Pillow and Node 22+.
+## Build and preview
 
-```powershell
-python -m pip install -r requirements.txt
-python scripts/build.py
-node server.mjs
+Requires Python 3.10+ with Pillow and Node 22+:
+
+```sh
+python3 -m pip install -r requirements.txt
+python3 scripts/build.py
+npm start
 ```
 
-Open **http://127.0.0.1:8085**. On this Windows machine, the bundled executables used for the first build are:
+On BTower, use `/usr/bin/python3` for the installed Pillow environment. The live service already uses port 8085; use `PORT=8086 npm start` for a separate local preview and set the matching `ALLOWED_ORIGINS` if testing its form.
 
-```powershell
-& 'C:\Users\ATE\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/build.py
-& 'C:\Users\ATE\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' server.mjs
+```sh
+npm test
+python3 scripts/check_site.py
 ```
 
-Run checks after building:
-
-```powershell
-node --test tests/server.test.mjs
-python scripts/check_site.py
-```
+`SITE_OUTPUT_DIR` selects a staging build/check directory. See [deployment and enquiry operations](docs/DEPLOYMENT.md) for the tested update workflow.
 
 ## Editing
 
-- `scripts/build.py`: page content and HTML templates.
-- `src/styles.css`: responsive visual design.
-- `src/app.js`: manual photo gallery, media viewers, mobile navigation and enquiry flow.
-- `config/site.json`: owner email and phone (rebuild after editing). Confirmed design category and availability fields also record owner decisions; copy changes belong in `build.py`.
-- `scripts/assets.py`: photo inventory, descriptions, ordering and asset preparation.
-- `ref/production/`: selected source media. All currently selected stills are included. Two of those are nearby images and also appear in the nearby section.
-- `dist/`: generated public site. Only this directory is served. Do not serve the repository root.
+- `scripts/build.py`: page copy, HTML, metadata and navigation.
+- `src/styles.css`: existing responsive design.
+- `src/app.js`: photo gallery, media viewers, mobile navigation and enquiry submission.
+- `server.mjs`: static file serving and private enquiry receiver.
+- `config/site.json`: property configuration; do not add private contact details.
+- `scripts/assets.py`: image inventory, captions and web derivatives.
+- `ref/production/`: selected photos, walkthrough and floorplans. The 2D plan's copy is kept consistent across SVG, PDF and PNG.
+- `deploy/sdatarneit.service`: BTower's user service, loopback binding and persistent storage configuration.
+- `dist/`: generated public site. Never serve the repository root.
 
-The original 479 MB walkthrough is stored with Git LFS at `ref/orig/Al-Social St-Tarneit-DFH Full.mp4`. Install Git LFS and run `git lfs pull` after cloning if you need the master locally. It remains excluded from the Docker build context and public website. Other working reference files are excluded from Git. Only the selected 32.49 MB video is copied into the public build. WebP images are generated at three widths; complete original-resolution stills are not copied publicly. Existing source files are not modified.
+The original walkthrough is tracked with Git LFS at `ref/orig/Al-Social St-Tarneit-DFH Full.mp4` and is excluded from the public build. Only the compressed walkthrough is served. The site has no autoplay, external video embeds, tracking scripts or web fonts.
 
 ## Enquiries
 
-The initial release has working email and phone links. The form prepares a **mailto draft** addressed to `alistairmorgan@hotmail.com`; the visitor must review and send it in their email app. It never presents this as a successful website submission. Visitors without an email app can use the displayed email or phone.
+BTower stores enquiries at **`/home/al/Git/sdatarneit/enquiries/`**, inside the working checkout, but outside `dist` and ignored by Git. A separate job emails a copy to the owner’s Gmail through Resend; the local JSON file remains the durable record. Each saved JSON file contains its timestamp and reference plus the visitor's details and message. Read [how to inspect, retain and back up enquiries](docs/DEPLOYMENT.md).
 
-An optional HTTPS webhook can enable direct website delivery; see [deployment](docs/DEPLOYMENT.md). No external service is configured and no real enquiry was sent during testing. Keep email-draft mode until an owner-approved delivery service has been set up and verified.
+The form requires a name, email, enquiry role, purpose, message and consent, with an optional phone number. It does not require SDA funding or a SIL provider. Server validation, field limits, same-origin checking, a honeypot, rate limiting and private file permissions are included. Success is returned only after saving to disk. Enquiry notification email is a separate background job, so a mail outage never prevents a successful local save.
 
-## Pages
+## Pages and property facts
 
-- `/`: substantial property overview, all selected photographs, media actions and links to supporting pages.
-- `/the-home/`: bedrooms, bathrooms, spaces, accessibility questions and separately labelled plans.
-- `/living-in-tarneit/`: nearby photographs and practical location considerations.
-- `/sda-and-support/`: SDA/SIL distinctions and property-specific FAQs.
-- `/enquiries/`: owner contact details and enquiry preparation.
-- `/walkthrough/`: click-to-play video with a text guide.
-- `/privacy/`: initial-enquiry information handling.
+The existing routes remain: `/`, `/the-home/`, `/living-in-tarneit/`, `/sda-and-support/`, `/enquiries/`, `/walkthrough/` and `/privacy/`. Each page has its own title, description, H1, canonical URL and sitemap entry.
 
-Each page has static navigation and text, a distinct title and description, one H1, a canonical URL and inclusion in the sitemap. There are no location-variation doorway pages, trackers, web fonts, embedded external videos or autoplay.
-
-## Before going live
-
-Read [content decisions and outstanding confirmations](docs/CONTENT-REVIEW.md) and [BTower deployment](docs/DEPLOYMENT.md). Current vacancy and move-in dates remain unconfirmed; the site asks visitors to enquire instead of claiming availability. The site is built and locally previewable, but is **not deployed to the domain** by this task.
+See [content decisions](docs/CONTENT-REVIEW.md) for the owner-confirmed facts and distinctions between actual property imagery, illustrative floorplans, rental inclusions and separately arranged support services.

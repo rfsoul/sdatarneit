@@ -1,0 +1,13 @@
+[Unit]
+Description=SDA Tarneit enquiry email notifications
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Git/sdatarneit
+EnvironmentFile=%h/.config/sdatarneit/email.env
+ExecStart=%h/.nvm/versions/node/v24.13.1/bin/node scripts/notify-enquiries.mjs
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+TimeoutStartSec=6min

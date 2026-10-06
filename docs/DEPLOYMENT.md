@@ -1,82 +1,110 @@
-# Deploy to BTower Linux using the existing Cloudflare Tunnel
+# SDA Tarneit deployment and enquiries
 
-No alternative hosting service is needed. The supplied Docker image builds the static site and runs a small Node server. The server only serves `dist/`, supports MP4 byte ranges and gzip for text, and applies security headers.
+The live site is **https://sdatarneit.au**, running on BTower through the existing `szatla7` Cloudflare Tunnel. VentraIP remains the registrar; nameservers are `elle.ns.cloudflare.com` and `memphis.ns.cloudflare.com`.
 
-## 1. Prepare BTower
+## Current services
 
-Copy/clone this repository including `ref/production`. Do not transfer `ref/orig`, `ref/processed` or `tmp`. Docker and Docker Compose must be available on BTower; this task has not connected to BTower or verified its installed services.
+- Site: enabled user service `sdatarneit.service`, listening only on `127.0.0.1:8085`.
+- Tunnel: system service `cloudflared`, with configuration in `/etc/cloudflared/config.yml`.
+- Route: `sdatarneit.au` → `http://127.0.0.1:8085`, tunnel UUID `98147799-1c14-4995-8198-21015a4864ba`.
+- The existing calendar route is preserved. Do not replace other routes when updating the tunnel. `deploy/cloudflared-btower.yml` records the launch configuration; compare it with the active file before applying it again.
+- User lingering is enabled, so the site service starts without an interactive login. BTower must remain powered on and connected.
 
-From the repository directory on BTower:
+The application serves only `dist/`. Source, configuration, reference originals and private enquiries must never be served by another web server rooted above that directory.
+
+## Where enquiries are saved
+
+Each accepted submission is a separate JSON file in:
+
+```text
+/home/al/Git/sdatarneit/enquiries/
+```
+
+This is persistent storage inside the repository working directory, outside the public `dist/` directory. It is ignored by Git and excluded from the Docker build context. It survives site rebuilds and service restarts. The systemd unit sets `ENQUIRIES_DIR` explicitly. Without an override, Node uses the `enquiries/` folder beside `server.mjs`. Existing enquiries were moved here from the earlier `~/.local/share/sdatarneit/enquiries` location.
+
+Files contain a UTC timestamp, UUID reference, name, email, optional phone, role, enquiry purpose (`topic`), message, consent and property name. Filenames contain the timestamp and UUID, never visitor-supplied text. The directory is created with mode `0700` and files with `0600`. The service runs as `al` with `UMask=0077`.
+
+The receiver validates and length-limits input, checks the request origin, uses a honeypot, and limits attempts to five per visitor address per 15 minutes. It writes a temporary file, flushes the file to disk, renames it to its final JSON filename and flushes the directory before returning success. Submitted text remains plain JSON data. Never execute it, interpolate it into shell commands, or render it as unescaped HTML.
+
+Enquiries are saved locally as the durable record. A separate background job sends a copy to the owner by email after the local save; email failures never undo a saved enquiry. The form shows the thank-you message only after the server confirms a saved enquiry. Failed submissions keep their form entries for retrying. After an interrupted connection, an enquiry may have been saved without the browser receiving its receipt; a retry can create a duplicate.
+
+## How to check enquiries
+
+On BTower, logged in as `al`:
+
+```sh
+ls -lt ~/Git/sdatarneit/enquiries/
+```
+
+To read one enquiry, replace `FILENAME.json` with a filename from the list:
+
+```sh
+/usr/bin/python3 -m json.tool ~/Git/sdatarneit/enquiries/FILENAME.json
+```
+
+You can also open the private folder in the local file manager. There is no public enquiry listing, download route or administration page. Use the visitor's saved contact details to respond privately and coordinate the next step with Disability Forever Homes.
+
+No automatic retention or backup schedule is configured. Include the folder in a private server backup if required, with access restricted to authorised people. Review and delete enquiries when they are no longer needed, including any backup copies according to your retention decisions. Keep the folder out of `dist`, shared/public directories and publicly served backups. `/enquiries/`, `/data/` and temporary JSON files are ignored by Git to avoid accidentally committing visitor details. Placing the folder in the checkout does not upload it to the Git remote. Back it up separately before deleting or replacing the checkout, or running commands such as `git clean -fdx` that remove ignored files. Any future upload of enquiry data should be a deliberate, separate action to an appropriately restricted destination.
+
+## Build, check and update
+
+Requires Node 22+ and Python 3 with Pillow. BTower currently uses `/usr/bin/python3` and Node 24 at the path recorded in the unit.
+
+Build into a staging directory so the running site is not changed before checks pass:
+
+```sh
+SITE_OUTPUT_DIR="$PWD/tmp/release" /usr/bin/python3 scripts/build.py
+SITE_OUTPUT_DIR="$PWD/tmp/release" npm test
+SITE_OUTPUT_DIR="$PWD/tmp/release" /usr/bin/python3 scripts/check_site.py
+```
+
+After verification, replace `dist` with the staged output and restart `sdatarneit.service`. Preserve the previous public build and corresponding server version for rollback; never replace, empty or roll back the enquiries folder as part of a code deployment.
+
+When the service unit changes:
+
+```sh
+install -m 644 deploy/sdatarneit.service ~/.config/systemd/user/sdatarneit.service
+systemctl --user daemon-reload
+systemctl --user enable --now sdatarneit.service
+systemctl --user restart sdatarneit.service
+curl -f http://127.0.0.1:8085/healthz
+```
+
+The unit's repository and Node paths are specific to BTower. Adjust them if moving the checkout or changing the installed Node version. The Node server does not automatically load `.env`; use the systemd environment settings or Node's `--env-file` option for a deliberate local override.
+
+`TRUST_PROXY=true` is enabled on BTower because the origin is bound to loopback and public traffic arrives through cloudflared. It lets the limiter use Cloudflare's visitor address. Do not enable this with a directly exposed origin or a proxy that accepts forged visitor headers. Rate limits are held in memory and reset on restart. Do not cache `/api/*`; the application sends `Cache-Control: no-store`.
+
+## Docker alternative
+
+Docker is not used on this BTower installation. `compose.yaml` includes a persistent named `enquiries` volume mounted at `/data/enquiries`; the image creates the mount point with the Node user's ownership and mode `0700`. The root filesystem remains read-only. The named volume must stay writable and must be retained across updates; **do not use `docker compose down -v`**, which deletes it.
 
 ```sh
 docker compose build
 docker compose up -d
-curl -I http://127.0.0.1:8085/
-curl http://127.0.0.1:8085/healthz
-curl -H 'Range: bytes=0-31' -I http://127.0.0.1:8085/assets/tarneit-720p.mp4
 ```
 
-Expected: homepage 200, health JSON `{"ok":true}`, video range 206. Port 8085 is bound to the loopback interface, not publicly exposed. Choose another free port deliberately if BTower already uses 8085; update Compose and the tunnel service together. Do not replace an existing service.
+The Docker path is `ENQUIRIES_DIR=/data/enquiries`. Do not replace it with a directory inside the image's public files or temporary storage. Keep the existing tunnel setup: a host-installed cloudflared can use `127.0.0.1:8085`; a containerised tunnel needs a shared private network and the service hostname. Set `TRUST_PROXY` only after confirming that traffic arrives exclusively through the trusted tunnel. This alternative recipe was not executed on BTower because Docker is not installed.
 
-Docker was not available in the Windows build environment, so the container recipe still needs its first build on BTower. The identical Node server and generated site were tested on Windows.
+## Verification for this update
 
-## 2. Add this hostname to the existing tunnel
+Automated checks cover successful durable storage, unique references, field validation, honeypot and rate limits, save failure and retry, public-path and symlink isolation, client-side detail preservation, navigation, metadata, the public enquiries link with private owner contacts excluded, media counts and video ranges. All automated enquiry tests use isolated temporary folders and remove their files afterward.
 
-For a **host-installed cloudflared service**, add a public hostname to the existing tunnel:
+The deployment check uses a clearly marked synthetic enquiry, verifies private persistence across a service restart, checks that the exact filename cannot be fetched publicly, then removes only that test file. For the notification setup, a separate marked end-to-end test was sent to the owner and then removed.
 
-- Hostname: `sdatarneit.au`
-- Service type: HTTP
-- Service: `http://127.0.0.1:8085`
+Check the live form, homepage availability, privacy information, gallery, plans, video and mobile navigation after future updates. The Node server redirects trusted Cloudflare requests with an original HTTP scheme to the canonical HTTPS domain. Cloudflare's **Always Use HTTPS** can also be enabled at the edge. `www` support is separate from the canonical bare domain and requires its own DNS/redirect configuration if desired.
 
-If the tunnel is managed by a local YAML file, merge this entry **above** its existing catch-all; preserve every existing hostname and all credentials:
+## Email notifications — active
 
-```yaml
-ingress:
-  # Keep other existing entries here.
-  - hostname: sdatarneit.au
-    service: http://127.0.0.1:8085
-  # Keep the existing catch-all last.
-  - service: http_status:404
-```
+`sdatarneit-notify.timer` is enabled on BTower and checks once a minute. Resend has the verified sending domain `sdatarneit.au`; its API key is sending-only and restricted to that domain. The public contact `enquiries@sdatarneit.au` is linked in the site footer and enquiry page. Cloudflare Email Routing forwards it to the owner's verified Gmail destination. A live test confirmed both paths.
 
-For **cloudflared running in Docker**, `127.0.0.1` refers to its own container. Join the site container to the tunnel’s existing Docker network and target `http://sdatarneit:8085`; use the actual network name from BTower rather than creating a second tunnel. Keep the port private and do not expose it to the internet. The existing tunnel arrangement is not included in this repository, so this choice must be checked on BTower.
+The destination address is in `~/.config/sdatarneit/email.env`, a mode-0600 private file outside Git. The API key and activation cutoff are set only in this private file; earlier enquiries are skipped. Use `deploy/email.env.example` as a template on another machine. Do not copy real credentials into the repository or public files.
 
-Point the hostname's Cloudflare DNS record at the **existing** tunnel using its current management workflow. Do not create a new tunnel, replace DNS for other hosts, or alter other public services. If `www.sdatarneit.au` is used, redirect it to `https://sdatarneit.au` in Cloudflare. Set HTTP-to-HTTPS redirection at Cloudflare. The site canonical URLs already use the bare HTTPS domain.
+Cloudflare MX records remain in place for inbound forwarding. Resend sending records are DNS-only CNAME/TXT entries and do not replace those MX records. Resend inbound receiving is off. No mail server or paid Cloudflare Workers plan is used.
 
-Do not cache `/api/*` in Cloudflare. The application already sends `Cache-Control: no-store` for API responses. Respect origin cache headers for HTML and assets. Never proxy the repository directory or a file server rooted above `dist/`.
+The job checks once a minute and sends at most one pending enquiry per run, using readable plain text plus the JSON attachment. The web form's success still depends on the local disk save, independently of email delivery. No new packages or mail server are needed.
 
-## 3. Enquiry delivery
+The current Resend Free plan is $0/month and includes 3,000 emails per month with a 100-per-day limit. If the free quota is exceeded without a paid plan, Resend says sending stops until you upgrade; paid pay-as-you-go overages must be enabled on a paid subscription. No paid plan or overage billing is configured for this setup. Check [Resend's current pricing](https://resend.com/pricing) before relying on these limits, as plans can change.
 
-**Default (ready now):** direct phone/email links and an email-draft form. No credentials or mail service are needed. The visitor must send from their email app; the site never says a draft has been submitted.
+Receipts are stored privately under `enquiries/.notifications/`. `accepted` means Resend accepted the request, not proof of inbox delivery. Failed transient requests retry after an hour using the same idempotency key. Ambiguous attempts older than 23 hours, changed destination/content, or permanent rejections are held as `review` rather than blindly resent: check the Resend dashboard and local receipt before deciding what to retry. This respects Resend's 24-hour idempotency window. Existing JSON enquiries are never removed or rewritten by the mail job.
 
-**Optional direct sending:** configure an owner-approved HTTPS endpoint that accepts JSON and delivers it to the owner. No particular provider has been chosen. Create `.env` from `.env.example` and set:
-
-```dotenv
-ENQUIRY_WEBHOOK_URL=https://YOUR-APPROVED-SERVICE/endpoint
-ENQUIRY_WEBHOOK_TOKEN=YOUR-SERVICE-TOKEN
-TRUST_PROXY=false
-```
-
-Do not use the example URL literally. The endpoint must return 2xx only after accepting the enquiry for delivery. Payload fields are `name`, `email`, `phone`, `role`, `topic`, `message`, `consent`, `property`, `submittedAt`. The optional token is passed as a Bearer token. Delivery credentials are server-only and must never be committed or put in frontend code.
-
-Restart after environment changes: `docker compose up -d --force-recreate`. The browser checks `/api/enquiry-status` and switches from “Open email enquiry” to “Send enquiry” only when a valid HTTPS delivery URL is configured. This status does not prove delivery: test with the owner’s permission and verify the actual received message before relying on it. Failed or timed-out delivery produces a visible error, never a success message.
-
-Validation, a honeypot, same-origin checking, a 16 KB request limit and a five-attempts-per-15-minutes rate limit are included. Rate limits are in memory and reset on restart. By default they use the socket IP. If—and only if—the origin is restricted to traffic through the existing Cloudflare Tunnel, set `TRUST_PROXY=true` to use Cloudflare's client IP header. With `false`, requests through a common tunnel peer share a rate limit. Add a Cloudflare rate-limiting rule for the POST endpoint if needed.
-
-Confirm delivery-service privacy/retention settings with the owner and update `/privacy/` for the chosen service before enabling direct sending. Do not log enquiry bodies or sensitive personal data.
-
-## 4. Launch checks
-
-- Confirm the owner still wants the displayed email and phone published.
-- Review `docs/CONTENT-REVIEW.md`. Do not turn historical image captions into a current vacancy claim.
-- Visit HTTPS desktop and mobile pages through the real hostname.
-- Test gallery arrows, thumbnails, Escape, keyboard navigation and swipe; check both plan labels.
-- Check video starts only after user action and seeking works through Cloudflare.
-- Test a phone link and email draft with no real message sent unless authorised.
-- Check canonical URLs, `/robots.txt` and `/sitemap.xml`.
-- Confirm `/ref/orig/`, `/.env` and `/server.mjs` return 404 through the public hostname.
-- Submit the sitemap to the owner's search-console account when ready. This is not done automatically.
-
-## Updates and rollback
-
-After edits: rebuild locally, run tests, then rebuild/restart the BTower service. Keep the previous working container image or release checkout so the service can be reverted without modifying the existing tunnel. Source assets remain unchanged. Generated assets use stable names and one-hour caching; purge the affected URLs in Cloudflare if an immediate image correction is necessary.
+Inspect operation with `systemctl --user status sdatarneit-notify.timer` and `journalctl --user -u sdatarneit-notify.service`. Logs contain summary counts only, not credentials, addresses or enquiry text. Mock-provider tests verify success, attachment contents, Reply-To, retry behaviour, duplicate avoidance, activation cutoffs and provider rejection. The live test confirmed delivery in Gmail, the JSON attachment and the visitor Reply-To; the synthetic enquiry and local receipt were removed afterward.

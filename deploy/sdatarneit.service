@@ -1,0 +1,22 @@
+[Unit]
+Description=SDA Tarneit website
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Git/sdatarneit
+ExecStart=%h/.nvm/versions/node/v24.13.1/bin/node server.mjs
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=8085
+Environment=ALLOWED_ORIGINS=https://sdatarneit.au
+Environment=TRUST_PROXY=true
+Environment=ENQUIRIES_DIR=%h/Git/sdatarneit/enquiries
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+UMask=0077
+
+[Install]
+WantedBy=default.target

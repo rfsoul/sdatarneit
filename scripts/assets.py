@@ -1,11 +1,11 @@
 """Create web derivatives only from the owner's selected production assets."""
 from pathlib import Path
-import json, re, shutil
+import json, re, shutil, os
 from PIL import Image, ImageOps
 
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'ref'/'production'
-DEST=ROOT/'dist'/'assets'
+DEST=Path(os.environ.get('SITE_OUTPUT_DIR',str(ROOT/'dist'))).resolve()/'assets'
 CAPTIONS={
 3:('Exterior','Social Street home — property title image'),5:('Exterior','Aerial view of the home and front garden'),8:('Exterior','Front entrance, garden and double garage'),12:('Entry','Entrance hallway leading towards the living area'),
 15:('OOA bedroom','Overnight onsite assistance bedroom'),17:('OOA bedroom','OOA bedroom with window and split-system unit'),19:('OOA bedroom','OOA bedroom and adjoining shower room'),20:('OOA bedroom','View from the OOA room towards its ensuite'),21:('OOA bedroom','OOA room doorway and adjoining ensuite'),22:('OOA bedroom','OOA ensuite entrance'),23:('OOA ensuite','OOA ensuite vanity and shower'),26:('OOA ensuite','Shower fitting in the OOA ensuite'),27:('OOA ensuite','Toilet in the OOA ensuite'),
@@ -31,7 +31,7 @@ def build_assets():
         if source.suffix.lower() not in ['.jpg','.jpeg','.png']:continue
         number=int(re.search(r'still-(\d+)',source.name)[1]);group,caption=CAPTIONS[number]
         slug=f'photo-{number:03}'
-        photos.append(dict(id=number,slug=slug,group=group,caption=caption,source=str(source.relative_to(ROOT)),**versions(source,slug)))
+        photos.append(dict(id=number,slug=slug,group=group,caption=caption,**versions(source,slug)))
     photos.sort(key=lambda p:(GROUPS.index(p['group']),p['id']))
     # Remove only our generated derivatives for stills no longer selected by the owner.
     selected={p['slug'] for p in photos}

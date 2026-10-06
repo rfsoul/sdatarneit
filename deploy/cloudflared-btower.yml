@@ -1,0 +1,9 @@
+tunnel: 98147799-1c14-4995-8198-21015a4864ba
+credentials-file: /home/al/.cloudflared/98147799-1c14-4995-8198-21015a4864ba.json
+
+ingress:
+  - hostname: calendar.szatla7.com
+    service: http://localhost:8088
+  - hostname: sdatarneit.au
+    service: http://127.0.0.1:8085
+  - service: http_status:404

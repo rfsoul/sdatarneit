@@ -1,0 +1,10 @@
+[Unit]
+Description=Check saved SDA Tarneit enquiries for email notifications
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=1min
+Unit=sdatarneit-notify.service
+
+[Install]
+WantedBy=timers.target

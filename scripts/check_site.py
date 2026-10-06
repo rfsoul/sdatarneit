@@ -2,8 +2,9 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
-import json
-ROOT=Path(__file__).resolve().parents[1]/'dist'
+import json, os
+REPO=Path(__file__).resolve().parents[1]
+ROOT=Path(os.environ.get('SITE_OUTPUT_DIR',str(REPO/'dist'))).resolve()
 class Page(HTMLParser):
     def __init__(self):super().__init__();self.links=[];self.ids=set();self.alts=[];self.h1=0
     def handle_starttag(self,tag,attrs):
@@ -31,6 +32,6 @@ for file,p in pages.items():
         elif u.fragment and target in pages and u.fragment not in pages[target].ids:errors.append(f'{file}: missing anchor {link}')
 assert not errors,'\n'.join(errors)
 assert not any(p.stat().st_size>50_000_000 for p in ROOT.rglob('*') if p.is_file()),'Oversized file in public output'
-selected=[p for p in (ROOT.parent/'ref/production/stills-1s - keep').iterdir() if p.suffix.lower() in ['.jpg','.jpeg','.png']]
+selected=[p for p in (REPO/'ref/production/stills-1s - keep').iterdir() if p.suffix.lower() in ['.jpg','.jpeg','.png']]
 assert len(json.loads((ROOT/'assets/gallery.json').read_text()))==len(selected)
 print(f'PASS: {len(pages)} HTML files, local links, fragments, image alts, selected-photo count and public file-size guard.')

@@ -2,7 +2,9 @@ import http from 'node:http';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createReadStream} from 'node:fs';
-import {stat,readFile} from 'node:fs/promises';
+import {stat,readFile,realpath,mkdir,open,rename,unlink} from 'node:fs/promises';
+import {randomUUID} from 'node:crypto';
+import {isIP} from 'node:net';
 import {createGzip} from 'node:zlib';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
@@ -15,42 +17,86 @@ const security={
  'Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
 };
 
+// Enquiries are data files, never executable HTML and never part of dist.
+const inside=(directory,file)=>file===directory||file.startsWith(directory+path.sep);
+async function saveEnquiry(directory,root,payload){
+ await mkdir(directory,{recursive:true,mode:0o700});
+ const resolved=await realpath(directory);
+ if(inside(await realpath(root),resolved))throw new Error('Enquiry storage must be outside the public directory');
+ const filename=`${payload.submittedAt.replace(/[:.]/g,'-')}-${payload.reference}.json`;
+ const destination=path.join(resolved,filename),temporary=destination+'.tmp';
+ let output;
+ try{
+  output=await open(temporary,'wx',0o600);
+  await output.writeFile(JSON.stringify(payload,null,2)+'\n','utf8');
+  await output.sync();await output.close();output=null;
+  await rename(temporary,destination);
+  const folder=await open(resolved,'r');
+  try{await folder.sync()}finally{await folder.close()}
+ }catch(error){
+  if(output)await output.close().catch(()=>{});
+  await unlink(temporary).catch(()=>{});
+  throw error;
+ }
+}
+
 export function createApp(options={}){
  const root=path.resolve(options.root??path.join(here,'dist'));
- const webhook=options.webhook??process.env.ENQUIRY_WEBHOOK_URL??'';
- const token=options.token??process.env.ENQUIRY_WEBHOOK_TOKEN??'';
+ const enquiriesDir=path.resolve(options.enquiriesDir??process.env.ENQUIRIES_DIR??path.join(here,'enquiries'));
+ if(inside(root,enquiriesDir))throw new Error('ENQUIRIES_DIR must be outside the public directory');
  const allowed=new Set(options.origins??(process.env.ALLOWED_ORIGINS??'https://sdatarneit.au,http://127.0.0.1:8085,http://localhost:8085').split(',').map(s=>s.trim()));
  const trustedProxy=options.trustProxy??process.env.TRUST_PROXY==='true';
- const deliver=options.deliver??((payload)=>fetch(webhook,{method:'POST',headers:{'Content-Type':'application/json',...(token?{Authorization:`Bearer ${token}`}:{})},body:JSON.stringify(payload),signal:AbortSignal.timeout(10000),redirect:'error'}));
- const enabled=!!webhook&&/^https:\/\//.test(webhook);
  const limits=new Map();
  function json(res,status,value){res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store',...security});res.end(JSON.stringify(value))}
- return http.createServer(async(req,res)=>{
+ const server=http.createServer(async(req,res)=>{
   try{
    const url=new URL(req.url,'http://localhost');
+   // The trusted Cloudflare proxy supplies the visitor's original scheme.
+   if(trustedProxy&&req.headers['x-forwarded-proto']==='http'){
+    res.writeHead(308,{Location:'https://sdatarneit.au'+url.pathname+url.search,...security});res.end();return;
+   }
    if(url.pathname==='/healthz'){json(res,200,{ok:true});return}
-   if(url.pathname==='/api/enquiry-status'&&req.method==='GET'){json(res,200,{enabled});return}
    if(url.pathname==='/api/enquiries'){
     if(req.method!=='POST'){res.setHeader('Allow','POST');json(res,405,{error:'Use POST for enquiries.'});return}
-    if(!enabled){json(res,503,{error:'Online delivery is not connected. Please email or call the owner directly.'});return}
-    if(!allowed.has(req.headers.origin)){json(res,403,{error:'This enquiry must be sent from the website.'});return}
-    if(!req.headers['content-type']?.startsWith('application/json')){json(res,415,{error:'Unsupported request format.'});return}
+    if(!allowed.has(req.headers.origin)){json(res,403,{error:'Please send your enquiry using the form on this website.'});return}
+    if(req.headers['content-type']?.split(';')[0].trim()!=='application/json'){json(res,415,{error:'Unsupported request format.'});return}
     const now=Date.now();for(const [key,value] of limits)if(value.until<=now)limits.delete(key);
-    // Only trust CF-Connecting-IP when this server is reachable exclusively through the tunnel.
-    const ip=trustedProxy?(req.headers['cf-connecting-ip']??req.socket.remoteAddress):req.socket.remoteAddress;
+    // Production binds to loopback; cloudflared overwrites this visitor header.
+    const cfIP=req.headers['cf-connecting-ip'];
+    const ip=trustedProxy&&typeof cfIP==='string'&&isIP(cfIP)?cfIP:req.socket.remoteAddress;
     const count=limits.get(ip)??{n:0,until:now+15*60*1000};
-    if(count.n>=5){res.setHeader('Retry-After',Math.ceil((count.until-now)/1000));json(res,429,{error:'Too many attempts. Please wait or contact the owner directly.'});return}
+    if(count.n>=5||(!limits.has(ip)&&limits.size>=10000)){res.setHeader('Retry-After',Math.ceil((count.until-now)/1000));json(res,429,{error:'Please wait 15 minutes before trying again. Your details are still in the form.'});return}
     count.n++;limits.set(ip,count);
-    if(Number(req.headers['content-length']??0)>16000){json(res,413,{error:'The enquiry is too long.'});req.resume();return}
-    let raw='';for await(const chunk of req){raw+=chunk;if(Buffer.byteLength(raw)>16000){json(res,413,{error:'The enquiry is too long.'});return}}
-    let v;try{v=JSON.parse(raw)}catch{json(res,400,{error:'Please check the enquiry details.'});return}
-    if(!v||typeof v!=='object'){json(res,400,{error:'Please check the enquiry details.'});return}
-    const clean=(key,max)=>typeof v[key]==='string'?v[key].trim().slice(0,max):'';
-    if(clean('website',100)){json(res,400,{error:'Unable to accept this enquiry.'});return}
-    const payload={name:clean('name',100),email:clean('email',254),phone:clean('phone',40),role:clean('role',80),topic:clean('topic',100),message:clean('message',4000),consent:v.consent==='on',property:'Social Street, Tarneit',submittedAt:new Date().toISOString()};
-    if(!payload.name||!/^\S+@[^\s@]+\.[^\s@]+$/.test(payload.email)||payload.message.length<10||!payload.consent){json(res,400,{error:'Please supply a name, valid email, message and consent.'});return}
-    try{const upstream=await deliver(payload);if(!upstream.ok)throw new Error('Delivery rejected');json(res,202,{accepted:true})}
-    catch{json(res,502,{error:'The enquiry service could not confirm receipt. Please email or call the owner directly.'})}
+    if(Number(req.headers['content-length']??0)>24000){json(res,413,{error:'Please shorten your enquiry and try again.'});req.resume();return}
+    const chunks=[];let length=0;
+    for await(const chunk of req){length+=chunk.length;if(length>24000){json(res,413,{error:'Please shorten your enquiry and try again.'});return}chunks.push(chunk)}
+    let v;try{v=JSON.parse(Buffer.concat(chunks).toString('utf8'))}catch{json(res,400,{error:'Please check your enquiry and try again.'});return}
+    if(!v||typeof v!=='object'||Array.isArray(v)){json(res,400,{error:'Please check your enquiry and try again.'});return}
+    const bounds={name:100,email:254,phone:40,role:80,topic:100,message:4000,website:100};
+    const fields={};
+    for(const [key,max] of Object.entries(bounds)){
+     const value=v[key]??'';
+     if(typeof value!=='string'||value.length>max||/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(value)){
+      json(res,400,{error:'Please check the length and format of your enquiry details.'});return;
+     }
+     fields[key]=value.trim();
+    }
+    if(fields.website){json(res,400,{error:'Unable to accept this enquiry. Please try again.'});return}
+    const roles=['A participant','A family member','A support coordinator','A SIL provider','Someone else'];
+    const topics=['The home and suitability','Current availability','Arranging an inspection','Something else'];
+    if(!fields.name||!/^\S+@[^\s@]+\.[^\s@]+$/.test(fields.email)||fields.message.length<10||v.consent!=='on'||!roles.includes(fields.role)||!topics.includes(fields.topic)){
+     json(res,400,{error:'Please include your name, a valid email, your enquiry role and purpose, a message of at least 10 characters, and consent to be contacted.'});return;
+    }
+    const {website,...details}=fields;
+    const payload={reference:randomUUID(),submittedAt:new Date().toISOString(),...details,consent:true,property:'Social Street, Tarneit'};
+    try{
+     await saveEnquiry(enquiriesDir,root,payload);
+     json(res,201,{accepted:true,reference:payload.reference});
+    }catch(error){
+     // Log only an error code: never submitted details or filesystem paths.
+     console.error('Enquiry save failed:',error.code??'STORAGE_ERROR');
+     json(res,503,{error:'Your enquiry could not be saved. Your details are still in the form. Please try again shortly.'});
+    }
     return;
    }
    if(url.pathname.startsWith('/api/')){json(res,404,{error:'Not found.'});return}
@@ -67,6 +113,7 @@ export function createApp(options={}){
    if(!info?.isFile()){
     const notFound=await readFile(path.join(root,'404.html'));res.writeHead(404,{'Content-Type':'text/html; charset=utf-8',...security});res.end(req.method==='HEAD'?undefined:notFound);return;
    }
+   if(!inside(await realpath(root),await realpath(file))){json(res,404,{error:'Not found.'});return}
    const ext=path.extname(file),etag=`"${info.size}-${Math.trunc(info.mtimeMs)}"`;
    const headers={'Content-Type':types[ext]??'application/octet-stream','Cache-Control':ext==='.html'?'no-cache':'public, max-age=3600','ETag':etag,'Accept-Ranges':'bytes',...security};
    if(req.headers['if-none-match']===etag){res.writeHead(304,headers);res.end();return}
@@ -82,8 +129,10 @@ export function createApp(options={}){
    if(gzip){headers['Content-Encoding']='gzip';headers.Vary='Accept-Encoding'}else headers['Content-Length']=end-start+1;
    res.writeHead(status,headers);if(req.method==='HEAD'){res.end();return}
    const stream=createReadStream(file,{start,end});stream.on('error',()=>res.destroy());res.on('close',()=>stream.destroy());if(gzip)stream.pipe(createGzip()).pipe(res);else stream.pipe(res);
-  }catch{if(!res.headersSent)json(res,500,{error:'Something went wrong. Please contact the owner directly.'});else res.destroy()}
+  }catch{if(!res.headersSent)json(res,500,{error:'Something went wrong. Please try again shortly.'});else res.destroy()}
  });
+ server.requestTimeout=15000;server.headersTimeout=10000;
+ return server;
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const host=process.env.HOST??'127.0.0.1',port=Number(process.env.PORT??8085);

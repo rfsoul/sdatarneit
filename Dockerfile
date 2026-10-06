@@ -13,6 +13,7 @@ ENV NODE_ENV=production HOST=0.0.0.0 PORT=8085
 WORKDIR /app
 COPY --from=builder --chown=node:node /build/dist ./dist
 COPY --chown=node:node server.mjs ./
+RUN mkdir -p /data/enquiries && chown node:node /data/enquiries && chmod 700 /data/enquiries
 USER node
 EXPOSE 8085
 CMD ["node", "server.mjs"]
