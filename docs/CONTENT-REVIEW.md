@@ -10,7 +10,8 @@
 - Shared kitchen, dining and living spaces, a covered alfresco and a double garage are part of the home.
 - The local park is a short walk of around 50 metres from the house (confirmed by the owner during this update). This distance is not an assertion of wheelchair accessibility for every visitor.
 - Initial enquiries reach the owner, who can answer questions and coordinate the next step with Disability Forever Homes, the property manager.
-- The public contact email is `enquiries@sdatarneit.au`; it forwards to the owner's Gmail. The owner's personal email address and phone are not published. Visitors can use this address or the server-backed form.
+- The public contact email is `enquiries@sdatarneit.au`; it forwards to the owner's Gmail. The public phone/SMS number is 0480 027 263. Visitors can use those contact channels or the server-backed form. Keep other personal contact details private.
+- The participant ensuites have roll-in showers. Avoid extending this into unverified clearance, turning-circle, step-free access or whole-property accessibility claims.
 
 ## Photos, walkthrough and plans
 
@@ -22,7 +23,7 @@ The 2D floorplan is an illustrative marketing layout, not a construction drawing
 
 ## Individual arrangements
 
-SDA accommodation and daily/overnight support services are distinct. No staffing roster, SIL provider, funding outcome or individual suitability is promised. Participants, families, support coordinators and SIL providers may enquire before funding or support arrangements are finalised.
+SDA accommodation and daily/overnight support services are distinct. No staffing roster, SIL provider, funding outcome or individual suitability is promised. Participants, families, support coordinators and SIL providers may enquire before funding or support arrangements are finalised. People considering another funding category or a two-participant household arrangement are welcome to discuss it; do not imply enrolment, suitability or approval.
 
 Do not invent accessibility specifications, equipment installations, travel times, shopping distances, prices or inclusions. The owner and Disability Forever Homes can coordinate inspection and property suitability questions; visitors can discuss funding and support with their own team.
 

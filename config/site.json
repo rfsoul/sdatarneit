@@ -1,5 +1,8 @@
 {
   "domain": "https://sdatarneit.au",
   "confirmedDesignCategory": "High Physical Support",
-  "availabilityStatement": "Available now for rent"
+  "availabilityStatement": "Available now for rent",
+  "publicPhone": "0480 027 263",
+  "publicPhoneHref": "tel:+61480027263",
+  "publicSmsHref": "sms:+61480027263"
 }

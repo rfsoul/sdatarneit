@@ -89,8 +89,11 @@ test('pages retain navigation, SEO, media and property details with only the pub
  const home=await readFile(path.join(root,'index.html'),'utf8');const enquiries=await readFile(path.join(root,'enquiries/index.html'),'utf8');
  assert.match(home,/Available now/);assert.match(enquiries,/Available now/);assert.match(home,/around 50 metres/);
  assert.match(home,/second participant bedroom and the overnight assistance room are unfurnished/);
+ assert.match(home,/href="tel:\+61480027263"/);assert.match(home,/href="sms:\+61480027263"/);assert.match(home,/Specialist Disability Accommodation/);
  assert.doesNotMatch(home,/<video/);assert.doesNotMatch(home,/<(?:script|img)[^>]+https?:\/\//);
- const features=await readFile(path.join(root,'the-home/index.html'),'utf8');assert.match(features,/All three bathrooms have showers; there are no baths/);
+ const features=await readFile(path.join(root,'the-home/index.html'),'utf8');assert.match(features,/All three bathrooms have showers; there are no baths/);assert.match(features,/roll-in showers/);
+ const support=await readFile(path.join(root,'sda-and-support/index.html'),'utf8');assert.match(support,/Improved Liveability or Fully Accessible/);assert.match(support,/three-resident arrangement/);
+ const local=await readFile(path.join(root,'living-in-tarneit/index.html'),'utf8');assert.match(local,/Julia Gillard Library Tarneit/);assert.match(local,/Transport Victoria/);
  assert.match(enquiries,/>Send enquiry<\/button>/);
  const gallery=JSON.parse(await readFile(path.join(root,'assets/gallery.json'),'utf8'));
  const selected=(await readdir(new URL('../ref/production/stills-1s - keep/',import.meta.url))).filter(x=>/\.(jpg|jpeg|png)$/i.test(x));
@@ -101,7 +104,7 @@ test('pages retain navigation, SEO, media and property details with only the pub
   assert.ok(!data.includes(Buffer.from('alistairmorgan@hotmail.com')),file);
   assert.ok(!data.includes(Buffer.from('alistairmorgan.rfsoul@gmail.com')),file);
   if(/\.(html|js|json|css|xml|txt|svg)$/.test(file)){
-   const content=data.toString();assert.doesNotMatch(content,/mailto:(?!enquiries@sdatarneit\.au)|tel:|0422[\s-]*626[\s-]*577|\+61422626577|supplied photos|supplied drawings|owner’s corrections|Open email enquiry|email.app|email-draft/i,file);
+   const content=data.toString();assert.doesNotMatch(content,/mailto:(?!enquiries@sdatarneit\.au)|(?:tel|sms):(?!\+61480027263)|0422[\s-]*626[\s-]*577|\+61422626577|supplied photos|supplied drawings|owner’s corrections|Open email enquiry|email.app|email-draft/i,file);
    assert.doesNotMatch(content,/enquiries@sdatarneit\.au(?!["<])/i,file);
   }
  }}await checkFiles(root);

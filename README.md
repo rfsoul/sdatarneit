@@ -2,7 +2,7 @@
 
 **https://sdatarneit.au** presents the High Physical Support SDA home available for rent on Social Street, Tarneit VIC 3029. It has two participant bedrooms with ensuites, a separate overnight onsite assistance room, three shower bathrooms, shared living spaces, a covered alfresco and a double garage.
 
-The existing static HTML site and Node server run on BTower through Cloudflare Tunnel. The enquiry form saves submissions as private persistent JSON files for the owner to review. Visitors can also email `enquiries@sdatarneit.au` directly; the owner's personal email address and phone number are not published.
+The existing static HTML site and Node server run on BTower through Cloudflare Tunnel. The enquiry form saves submissions as private persistent JSON files for the owner to review. Visitors can call or text Al on **0480 027 263**, use the form, or email `enquiries@sdatarneit.au`. Personal contact details remain private.
 
 ## Build and preview
 
@@ -29,7 +29,7 @@ python3 scripts/check_site.py
 - `src/styles.css`: existing responsive design.
 - `src/app.js`: photo gallery, media viewers, mobile navigation and enquiry submission.
 - `server.mjs`: static file serving and private enquiry receiver.
-- `config/site.json`: property configuration; do not add private contact details.
+- `config/site.json`: property configuration and the public business contact number; do not add private contact details.
 - `scripts/assets.py`: image inventory, captions and web derivatives.
 - `ref/production/`: selected photos, walkthrough and floorplans. The 2D plan's copy is kept consistent across SVG, PDF and PNG.
 - `deploy/sdatarneit.service`: BTower's user service, loopback binding and persistent storage configuration.
