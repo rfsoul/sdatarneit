@@ -1,6 +1,6 @@
 # SDA Tarneit
 
-**https://sdatarneit.au** presents the High Physical Support SDA home available for rent on Social Street, Tarneit VIC 3029. It has two participant bedrooms with ensuites, a separate overnight onsite assistance room, three shower bathrooms, shared living spaces, a covered alfresco and a double garage.
+**https://sdatarneit.au** presents two vacant participant bedrooms in the High Physical Support SDA home on Social Street, Tarneit VIC 3029. Each has an ensuite with a roll-in shower; a separate overnight assistance room is for support staff. The property manager lists Medium Term Accommodation or an ongoing lease.
 
 The existing static HTML site and Node server run on BTower through Cloudflare Tunnel. The enquiry form saves submissions as private persistent JSON files for the owner to review. Visitors can call or text Al on **0480 027 263**, use the form, or email `enquiries@sdatarneit.au`. Personal contact details remain private.
 
