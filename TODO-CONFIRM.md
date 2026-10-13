@@ -1,3 +1,3 @@
-# Items to confirm before deployment
+# Open questions
 
-- Please have Disability Forever Homes (DFH) approve the funding-flexibility wording about Improved Liveability, Fully Accessible and different funded household sizes before deployment.
+No outstanding confirmation items.

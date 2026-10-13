@@ -27,4 +27,4 @@ When ready, ask Disability Forever Homes whether it can link to the property pag
 
 The homepage and existing home/support routes now lead with two participant vacancies, the HPS category, roll-in showers, the separate OOA staff room, furnishing, pets, provider choice and lease/MTA options. The existing SDA & support page serves support coordinators, SIL providers and allied-health professionals; no new audience route was needed. The Tarneit guide uses current council, transport, shopping and hospital links without claiming travel times or access suitability.
 
-Funding flexibility is presented as a conversation with Al and DFH, with individual consideration and no promise of funding, acceptance or outcome. **DFH approval of that wording remains a pre-deployment item** (see `TODO-CONFIRM.md`). This branch is a local preview and has not been deployed.
+Funding flexibility is presented in the concise wording approved by DFH before deployment. The follow-up content pass was merged to `main` in PR #1 and deployed on 13 October 2026. The public homepage and funding section were checked after deployment.
