@@ -79,18 +79,24 @@ test('trusted HTTP traffic redirects to the fixed HTTPS origin with its path pre
  await withServer({},async url=>assert.equal((await fetch(url+'/',{headers:{'X-Forwarded-Proto':'http'},redirect:'manual'})).status,200));
 });
 
-test('pages retain navigation, SEO, media and property details with only the public enquiries email',async()=>{
- const titles=new Set();for(const route of ['','the-home/','living-in-tarneit/','sda-and-support/','enquiries/','privacy/','walkthrough/']){
+test('pages retain navigation, distinct SEO metadata, media and confirmed vacancy details',async()=>{
+ const titles=new Set(),descriptions=new Set();for(const route of ['','the-home/','living-in-tarneit/','sda-and-support/','enquiries/','privacy/','walkthrough/']){
   const html=await readFile(path.join(root,route,'index.html'),'utf8');
   assert.equal((html.match(/<h1>/g)||[]).length,1);assert.match(html,/<nav.*Main navigation/);assert.match(html,/name="description"/);
-  const title=html.match(/<title>(.*?)<\/title>/)[1];assert.ok(!titles.has(title));titles.add(title);
-  assert.match(html,/<link rel="canonical" href="https:\/\/sdatarneit.au\//);
+  const title=html.match(/<title>(.*?)<\/title>/)[1],description=html.match(/<meta name="description" content="([^"]*)"/)[1];assert.ok(!titles.has(title));titles.add(title);assert.ok(!descriptions.has(description));descriptions.add(description);
+  assert.match(html,/<link rel="canonical" href="https:\/\/sdatarneit\.au\//);
  }
  const home=await readFile(path.join(root,'index.html'),'utf8');const enquiries=await readFile(path.join(root,'enquiries/index.html'),'utf8');
- assert.match(home,/Available now/);assert.match(enquiries,/Available now/);assert.match(home,/around 50 metres/);
- assert.match(home,/second participant bedroom and the overnight assistance room are unfurnished/);
+ assert.match(home,/two participant vacancies available/);assert.match(enquiries,/Two participant vacancies/);assert.match(home,/roll-in showers/);
+ assert.match(home,/Bedroom one is furnished and ready; bedroom two is unfurnished/);assert.match(home,/OOA room is unfurnished and is for overnight support staff, not a third participant/);
+ assert.match(home,/href="tel:\+61480027263"/);assert.match(home,/href="sms:\+61480027263"/);assert.match(home,/Specialist Disability Accommodation/);
+ assert.match(home,/Pets are welcome/);assert.match(home,/own support provider/);assert.match(home,/Medium Term Accommodation \(MTA\) or an ongoing lease/);assert.match(home,/support-professionals/);assert.match(home,/og:title/);assert.match(home,/og:description/);
+ assert.ok(home.match(/<meta name="description" content="([^"]*)"/)[1].length<155);
  assert.doesNotMatch(home,/<video/);assert.doesNotMatch(home,/<(?:script|img)[^>]+https?:\/\//);
- const features=await readFile(path.join(root,'the-home/index.html'),'utf8');assert.match(features,/All three bathrooms have showers; there are no baths/);
+ const features=await readFile(path.join(root,'the-home/index.html'),'utf8');assert.match(features,/three shower bathrooms in total/);assert.match(features,/roll-in shower/);assert.match(features,/step-free access/);assert.match(features,/supports a future hoist/);
+ const support=await readFile(path.join(root,'sda-and-support/index.html'),'utf8');assert.match(support,/Improved Liveability, Fully Accessible/);assert.match(support,/whether Improved Liveability, Fully Accessible or a different funded household size may be considered/);assert.match(support,/How many participant vacancies are available/);assert.match(support,/What does High Physical Support mean/);assert.match(support,/Are pets welcome/);assert.match(support,/MTA or an ongoing lease/);assert.match(support,/id="support-professionals"/);assert.match(support,/does not provide SIL/);
+ const local=await readFile(path.join(root,'living-in-tarneit/index.html'),'utf8');assert.match(local,/Julia Gillard Library Tarneit/);assert.match(local,/Transport Victoria/);assert.match(local,/nearby suburbs/);
+ const walkthrough=await readFile(path.join(root,'walkthrough/index.html'),'utf8');assert.match(walkthrough,/preload="none"/);assert.match(walkthrough,/room-by-room overview/);assert.match(walkthrough,/illustrative floor plan/);
  assert.match(enquiries,/>Send enquiry<\/button>/);
  const gallery=JSON.parse(await readFile(path.join(root,'assets/gallery.json'),'utf8'));
  const selected=(await readdir(new URL('../ref/production/stills-1s - keep/',import.meta.url))).filter(x=>/\.(jpg|jpeg|png)$/i.test(x));
@@ -101,7 +107,7 @@ test('pages retain navigation, SEO, media and property details with only the pub
   assert.ok(!data.includes(Buffer.from('alistairmorgan@hotmail.com')),file);
   assert.ok(!data.includes(Buffer.from('alistairmorgan.rfsoul@gmail.com')),file);
   if(/\.(html|js|json|css|xml|txt|svg)$/.test(file)){
-   const content=data.toString();assert.doesNotMatch(content,/mailto:(?!enquiries@sdatarneit\.au)|tel:|0422[\s-]*626[\s-]*577|\+61422626577|supplied photos|supplied drawings|owner’s corrections|Open email enquiry|email.app|email-draft/i,file);
+   const content=data.toString();assert.doesNotMatch(content,/mailto:(?!enquiries@sdatarneit\.au)|(?:tel|sms):(?!\+61480027263)|0422[\s-]*626[\s-]*577|\+61422626577|supplied photos|supplied drawings|owner’s corrections|Open email enquiry|email\.app|email-draft|\[CONFIRM|three vacancies|fully furnished|hoists installed/i,file);
    assert.doesNotMatch(content,/enquiries@sdatarneit\.au(?!["<])/i,file);
   }
  }}await checkFiles(root);
