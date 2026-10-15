@@ -1,0 +1,6 @@
+Mode: built-in image_gen
+
+Use case: precise-object-edit
+Input image: the sole edit target supplied by referenced_image_paths.
+Primary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.
+Constraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.

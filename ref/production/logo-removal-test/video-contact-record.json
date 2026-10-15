@@ -1,0 +1,48 @@
+{
+  "operation": "Opaque two-line contact panel covering the fixed DFH logo throughout the video",
+  "text": [
+    "Call Al",
+    "0480 027 263"
+  ],
+  "panel": {
+    "x": 1040,
+    "y": 12,
+    "width": 224,
+    "height": 126,
+    "background": "#173c33",
+    "top_accent": "#b6a17a"
+  },
+  "original": "/home/al/Git/sdatarneit/ref/production/video/tarneit-720p.mp4",
+  "original_sha256": "ef5b7af4c7af8a24e91dc229d36d654605a76810ef174c21a2a27359775fb196",
+  "original_unchanged": true,
+  "output": "/home/al/Git/sdatarneit/ref/production No DFH logo/video/tarneit-720p.mp4",
+  "output_sha256": "c3e284b04b88cf4db05f8c27c20719ef1bcf8c6c9aacbbbba9043120a55160e0",
+  "output_bytes": 42287416,
+  "resolution": [
+    1280,
+    720
+  ],
+  "fps": "30000/1001",
+  "video_frames": 4049,
+  "duration_seconds": 135.124,
+  "encoding": {
+    "codec": "H.264",
+    "preset": "slow",
+    "crf": 18,
+    "pixel_format": "yuv420p",
+    "colour": "bt709 limited",
+    "faststart": true
+  },
+  "audio": "AAC copied without re-encoding; compressed audio hash matches source",
+  "quality": {
+    "all_frames_decoded_and_compared": true,
+    "ssim_mean": 0.9954573484811065,
+    "ssim_min_frame": 0.985515,
+    "ssim_method": "Both inputs have a 240x144 rectangle at (1032,4) masked black to exclude the contact panel and a small compression boundary. The rest of each frame is compared.",
+    "visual_review": "Sampled throughout all scene types; full-resolution exterior and interior checked. No crop or resize. Phone text and opaque logo coverage checked."
+  },
+  "preview_video": "/home/al/Git/sdatarneit/ref/production No DFH logo/logo-removal-test/video-contact-preview.mp4",
+  "preview_image": "/home/al/Git/sdatarneit/ref/production No DFH logo/logo-removal-test/video-contact-final.png",
+  "source_audio_sha256": "SHA256=52c2ac99569312ae2c0936779aafb9140977db18a1209fe83c932d12c109f4a4",
+  "output_audio_sha256": "SHA256=52c2ac99569312ae2c0936779aafb9140977db18a1209fe83c932d12c109f4a4"
+}

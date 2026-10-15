@@ -1,0 +1,211 @@
+{
+  "mode": "built-in image_gen edit, followed by local patch compositing with ffmpeg",
+  "source_folder": "/home/al/Git/sdatarneit/ref/production",
+  "destination_folder": "/home/al/Git/sdatarneit/ref/production No DFH logo",
+  "method": "Start from the original 3840x2160 photograph. Generate a repaired 1536x1024 upper-right crop, then blend only the logo region into the original image. Match sky/wall patch colour to surrounding source pixels. Encode a high-quality JPEG at original resolution.",
+  "encoding": {
+    "format": "JPEG",
+    "ffmpeg_q_v": 1,
+    "pixel_format": "yuvj444p"
+  },
+  "repair_inputs": [
+    {
+      "file": "/home/al/Git/sdatarneit/ref/production/stills-1s - keep/still-103.jpg",
+      "sha256": "a74596a78294ed2b33d66dd2ac8adef04230b2aa2718d8341c2ff102ccfd4347",
+      "crop": "/tmp/dfh-four-repair/still-103-logo-region.png",
+      "x": 2304,
+      "y": 0,
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "file": "/home/al/Git/sdatarneit/ref/production/stills-1s - keep/still-121.jpg",
+      "sha256": "2980470b24a12675dcbc581118ad3655bfaa5e7a3c9b33f9fda5995728d8dd8f",
+      "crop": "/tmp/dfh-four-repair/still-121-logo-region.png",
+      "x": 2304,
+      "y": 0,
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "file": "/home/al/Git/sdatarneit/ref/production/stills-1s - keep/still-123.jpg",
+      "sha256": "ccc4909c1d2dccec73d793b45584bebef8b50a936334ab5c45dc01d3f1e23e3b",
+      "crop": "/tmp/dfh-four-repair/still-123-logo-region.png",
+      "x": 2304,
+      "y": 0,
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "file": "/home/al/Git/sdatarneit/ref/production/stills-1s - keep/still-126.jpg",
+      "sha256": "0becc586f254763ecb6f0ebc4c02908ed04533c2182cbae24ad220ea99d77f5a",
+      "crop": "/tmp/dfh-four-repair/still-126-logo-region.png",
+      "x": 2304,
+      "y": 0,
+      "width": 1536,
+      "height": 1024
+    }
+  ],
+  "prompts_and_generated_patches": [
+    {
+      "n": "103",
+      "generated": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-4a67be5a-1eb3-42b5-aa24-753ed9e7072f.png",
+      "prompt": "Use case: precise-object-edit\nAsset type: original-resolution cropped repair patch for a real estate photograph.\nInput image: the sole supplied image is the edit target, a 1536 x 1024 pixel crop of the original photograph.\nPrimary request: Completely remove the upper-right DFH overlay: all large red and white letters, the thin red horizontal rule, and the entire 'Disability Forever Homes' tagline.\nLocal reconstruction: Behind the logo are tan-grey bricks, the dark roof gutter and a dark blue metal clothesline rail. Continue the existing brick courses and mortar lines precisely. Keep the diagonal clothesline rail straight, in its exact position and thickness, with the same highlight and shadow. Do not bend, shift, replace or redesign any structural edge.\nConstraints: Repair ONLY the pixels occupied by the DFH overlay and their immediate edges. Preserve all other visible photographic information exactly: viewpoint, composition, object positions, structure, materials, colour, exposure, texture, sharpness and grain. Do not beautify, denoise, sharpen, repaint or smooth the rest of the image.\nOutput: Return the complete supplied crop at 1536 x 1024 pixels if possible, with identical framing and no cropping or scaling. No added text or objects. This will be used as a small local patch on the original 4K photo."
+    },
+    {
+      "n": "121",
+      "generated": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-127701a6-f2ee-4606-b8dc-dc63fe9b2e99.png",
+      "prompt": "Use case: precise-object-edit\nAsset type: original-resolution cropped repair patch for a real estate photograph.\nInput image: the sole supplied image is the edit target, a 1536 x 1024 pixel crop of the original photograph.\nPrimary request: Completely remove the upper-right DFH overlay: all large red and white letters, the thin red horizontal rule, and the entire 'Disability Forever Homes' tagline.\nLocal reconstruction: Behind the logo is only the same plain grey-green painted wall. Continue its subtle existing illumination gradient and very fine photographic texture. No objects, patterns, seams, text or rectangular patches.\nConstraints: Repair ONLY the pixels occupied by the DFH overlay and their immediate edges. Preserve all other visible photographic information exactly: viewpoint, composition, object positions, structure, materials, colour, exposure, texture, sharpness and grain. Do not beautify, denoise, sharpen, repaint or smooth the rest of the image.\nOutput: Return the complete supplied crop at 1536 x 1024 pixels if possible, with identical framing and no cropping or scaling. No added text or objects. This will be used as a small local patch on the original 4K photo.",
+      "composite_source": "/tmp/dfh-four-repair/still-121-matched-patch.png",
+      "colour_match": {
+        "method": "quadratic RGB offset fitted to untouched perimeter",
+        "coefficients": [
+          [
+            6.733470006805907,
+            -11.668899255087748,
+            -8.46985105931828,
+            6.896814004013767,
+            5.9689166423124345,
+            1.4953478623389962
+          ],
+          [
+            12.023456751921161,
+            -26.818203539744406,
+            -14.654166461277583,
+            -0.15195924765074142,
+            17.97419598392186,
+            19.505368499262577
+          ],
+          [
+            3.065888582759537,
+            -2.534163152704366,
+            -9.007970721956742,
+            -6.669569217155815,
+            3.2484704611033903,
+            12.606735173170287
+          ]
+        ],
+        "boundary_rmse_before": 1.880582930721318,
+        "boundary_rmse_after": 1.1850331354155235
+      }
+    },
+    {
+      "n": "123",
+      "generated": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-c4029ca3-bf32-4246-bee2-334a8e076000.png",
+      "prompt": "Use case: precise-object-edit\nAsset type: original-resolution cropped repair patch for a real estate photograph.\nInput image: the sole supplied image is the edit target, a 1536 x 1024 pixel crop of the original photograph.\nPrimary request: Completely remove the upper-right DFH overlay: all large red and white letters, the thin red horizontal rule, and the entire 'Disability Forever Homes' tagline.\nLocal reconstruction: Behind the logo are existing neighboring houses, dark tiled roofs, solar panels, brickwork and pale walls. Reconstruct only the occluded small areas by continuing the visible roof planes, tile patterns, solar-panel edges, building lines and shadows naturally. Keep every visible edge, window, fence, roofline and object in its exact location; do not redesign houses.\nConstraints: Repair ONLY the pixels occupied by the DFH overlay and their immediate edges. Preserve all other visible photographic information exactly: viewpoint, composition, object positions, structure, materials, colour, exposure, texture, sharpness and grain. Do not beautify, denoise, sharpen, repaint or smooth the rest of the image.\nOutput: Return the complete supplied crop at 1536 x 1024 pixels if possible, with identical framing and no cropping or scaling. No added text or objects. This will be used as a small local patch on the original 4K photo."
+    },
+    {
+      "n": "126",
+      "generated": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-98a71eae-275d-4021-a855-eb88dafcf9be.png",
+      "prompt": "Use case: precise-object-edit\nAsset type: original-resolution cropped repair patch for a real estate photograph.\nInput image: the sole supplied image is the edit target, a 1536 x 1024 pixel crop of the original photograph.\nPrimary request: Completely remove the upper-right DFH overlay: all large red and white letters, the thin red horizontal rule, and the entire 'Disability Forever Homes' tagline.\nLocal reconstruction: Behind the logo is only clear blue sky. Continue the existing blue-to-hazy-blue vertical gradient smoothly with no clouds or visible seams. Preserve the horizon, rooftops and all shop signs below exactly.\nConstraints: Repair ONLY the pixels occupied by the DFH overlay and their immediate edges. Preserve all other visible photographic information exactly: viewpoint, composition, object positions, structure, materials, colour, exposure, texture, sharpness and grain. Do not beautify, denoise, sharpen, repaint or smooth the rest of the image.\nOutput: Return the complete supplied crop at 1536 x 1024 pixels if possible, with identical framing and no cropping or scaling. No added text or objects. This will be used as a small local patch on the original 4K photo.",
+      "composite_source": "/tmp/dfh-four-repair/still-126-matched-patch.png",
+      "colour_match": {
+        "method": "quadratic RGB offset fitted to untouched perimeter",
+        "coefficients": [
+          [
+            15.259118477386917,
+            -38.38462414761216,
+            39.13874028749662,
+            -15.082897512386907,
+            28.30281024213384,
+            -67.38181003521802
+          ],
+          [
+            14.950826091809066,
+            -40.68325705191698,
+            34.27351721988299,
+            -16.49221158644366,
+            29.29544144787848,
+            -30.404407001335983
+          ],
+          [
+            8.154694213971919,
+            -11.070911932128164,
+            1.0744032479599734,
+            10.495382126666664,
+            4.966168407224195,
+            0.19194471862133666
+          ]
+        ],
+        "boundary_rmse_before": 5.218030211387984,
+        "boundary_rmse_after": 2.3053605681133615
+      }
+    }
+  ],
+  "validation": [
+    {
+      "file": "still-103.jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "outside_repair_rgb_differences_before_jpeg": 0,
+      "jpeg_ssim_below_logo": 0.992609,
+      "original_unchanged": true,
+      "output_sha256": "e20cc404190ec6d003ac434b2f73a00639a6b79e2d71d7ea596ba55e4d384eb0",
+      "bytes": 2375518,
+      "patch_bounds": [
+        3144,
+        48,
+        3814,
+        418
+      ]
+    },
+    {
+      "file": "still-121.jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "outside_repair_rgb_differences_before_jpeg": 0,
+      "jpeg_ssim_below_logo": 0.998658,
+      "original_unchanged": true,
+      "output_sha256": "3ce807fa141c2b9f2948ffca0f6a95abf384cc848831a0be093abb4f1fe6a8ec",
+      "bytes": 271016,
+      "patch_bounds": [
+        3084,
+        0,
+        3839,
+        424
+      ]
+    },
+    {
+      "file": "still-123.jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "outside_repair_rgb_differences_before_jpeg": 0,
+      "jpeg_ssim_below_logo": 0.994946,
+      "original_unchanged": true,
+      "output_sha256": "c9f981e7260810d1179df07c2929ad1ca3616885a12c9a8aeac80e44191194e4",
+      "bytes": 2476837,
+      "patch_bounds": [
+        3144,
+        48,
+        3814,
+        418
+      ]
+    },
+    {
+      "file": "still-126.jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "outside_repair_rgb_differences_before_jpeg": 0,
+      "jpeg_ssim_below_logo": 0.994571,
+      "original_unchanged": true,
+      "output_sha256": "4539897648d81598ecb0545eb5b9ed4433e9a729659008be191295d88f241315",
+      "bytes": 2265926,
+      "patch_bounds": [
+        3084,
+        0,
+        3839,
+        424
+      ]
+    }
+  ],
+  "only_four_photo_files_changed": true,
+  "originals_unchanged": true
+}

@@ -1,0 +1,467 @@
+{
+  "mode": "built-in image_gen",
+  "files": [
+    {
+      "file": "2d floor-plan/tarneit-friendly-floor-plan.png",
+      "original_sha256": "a8eb04c671ea853fe5de59f47613740507914aa662ca24083528692fcb4d3de4",
+      "status": "unchanged_no_dfh_logo"
+    },
+    {
+      "file": "3d floorplan/tarneit 3D floorplan-car-rotated.png",
+      "original_sha256": "5936b6aea853af833ddb9657e732d580b73a7d815a40578bfea0995e9e3779ca",
+      "status": "unchanged_no_dfh_logo"
+    },
+    {
+      "file": "nearby/Playground 50m.jpg",
+      "original_sha256": "0becc586f254763ecb6f0ebc4c02908ed04533c2182cbae24ad220ea99d77f5a",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-69b973ca-c2b8-4c07-9a25-8d21e6d3df1e.png",
+      "output_sha256": "71a54dd9783a5fa942a12c3fa62e423d2b0ce96796503c9e2cea5a6c6ba0ba9a"
+    },
+    {
+      "file": "nearby/Tarneit shopping.jpg",
+      "original_sha256": "ccc4909c1d2dccec73d793b45584bebef8b50a936334ab5c45dc01d3f1e23e3b",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-25063626-f8be-4f0d-ad52-d1b9c311ea5e.png",
+      "output_sha256": "a5e33013ba62094afe9277c75c4d8cad315ff818e1a0753f5b35e39af83b4ea6"
+    },
+    {
+      "file": "stills-1s - keep/still-003-postcode-3029.png",
+      "original_sha256": "149b2268c9dfe63c3f41e324b0ee520923c68f4e7e62b08794cc9b06fe64e370",
+      "status": "unchanged_no_dfh_logo"
+    },
+    {
+      "file": "stills-1s - keep/still-005.jpg",
+      "original_sha256": "622ca7cbd0365ce8fd3a14bfd7eba549cf9951bd9c7e19911d839339bddd690e",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-45d78d82-605a-4e4b-af44-7fe947f5c1dc.png",
+      "output_sha256": "3ca96686aa8188166db0613e5e6a159794d3179c8eafe5a326b5c3be45e60fcb"
+    },
+    {
+      "file": "stills-1s - keep/still-008.jpg",
+      "original_sha256": "96d42da83c90fb6273c300139c26e31de45a2ffba34a5294babff2f1ec36e80f",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-be087836-034d-430e-9be8-8f0f86b61e03.png",
+      "output_sha256": "f8fefd843f6fa421eb5df82138ef8af36cc3745771a6b47d6d4e7074799217c9"
+    },
+    {
+      "file": "stills-1s - keep/still-012.jpg",
+      "original_sha256": "f2dce960462f131d4db045c30dba5cbe035efd9649012938847a2802a378146d",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-0f26b7e6-4b6e-4763-a857-16bd79133c4d.png",
+      "output_sha256": "959081494ec9f8401255ced4f6856e549f602496dd5c60dafe646934bfcf2e88"
+    },
+    {
+      "file": "stills-1s - keep/still-015.jpg",
+      "original_sha256": "fd86bb1e6fbb82840b9e62315bf3c03ae624d6bde11b3393262d2f3696b4dab0",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-b865ea0b-613f-40c2-b444-475a9842c49b.png",
+      "output_sha256": "9b5bc10f0029307964f80c59fd7cb2134f29f1cc81dae127f3ac5890848caea7"
+    },
+    {
+      "file": "stills-1s - keep/still-017.jpg",
+      "original_sha256": "21639ac598b307f0859f698f7bab763b0fe82116ea3fcc238ac8b5cdfde14942",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-35f9a28b-917c-42e1-a75f-bcaf3a61bfd6.png",
+      "output_sha256": "4bfe0994610d81aaf0ec66ddeb0d4f49a3d0954eb86d378a515c103b683e53f1"
+    },
+    {
+      "file": "stills-1s - keep/still-019.jpg",
+      "original_sha256": "4ed21affb723777899fa64746a21a5918a8d556e5c1cc22f267e43d8484bc7f8",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-746bfce2-3be9-41a4-9508-2819b89443f4.png",
+      "output_sha256": "94bb90117ecfc9e9fb03971cdaa67273ac51c5825cab61a07cc404de4e5c78e5"
+    },
+    {
+      "file": "stills-1s - keep/still-020.jpg",
+      "original_sha256": "c2151ebe5d052f87df8b49db71d48864c03e989f2585e45105578adfeafd3802",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-3bcb21de-9afd-463d-9011-6b6e21afd0e9.png",
+      "output_sha256": "af3761f850ff1784bf71387cb6ebd1cd395926d7a25cecd78559ddd6cf5c901f"
+    },
+    {
+      "file": "stills-1s - keep/still-022.jpg",
+      "original_sha256": "21a5bf36bbaae5d0e3cf122c4e90a7be269694cc1f4186cd57ecd5b48b2ec667",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-79c8cdc7-58c5-43c6-aa68-b7a9e14896f9.png",
+      "output_sha256": "5bd0932986d5bb745c558390249209990d6595f2717ebd5b2739d3c5f864d8b2"
+    },
+    {
+      "file": "stills-1s - keep/still-023.jpg",
+      "original_sha256": "5c00e8bfbb354721c5abdebb651fcdc77766cfbc9e3f6a27007e2b2ddd6b80d9",
+      "status": "replaced",
+      "generated_source": "/home/al/Git/sdatarneit/ref/production No DFH logo/logo-removal-test/still-023-no-dfh.png",
+      "output_sha256": "e23d2aa3eec6aafb04f7a7206164df7b0a6937921be9741214f3d511049ab3cd"
+    },
+    {
+      "file": "stills-1s - keep/still-026.jpg",
+      "original_sha256": "a5b0730d5fb8403ea8b40800ae26add74d8668a22ab4229654bc87270aff93a8",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-af36128d-d81b-47b0-8f90-466b1d4394a8.png",
+      "output_sha256": "cf1deafceee1c6cd6caf864f06385bb163e01ab553687f7abc411e267cf8c881"
+    },
+    {
+      "file": "stills-1s - keep/still-027.jpg",
+      "original_sha256": "22622fa753b6dfccd21a837f7b4033e6c9afc8d998119bce7465ae836d0d2738",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-e87b652a-36db-4cac-ac1d-d792b662e796.png",
+      "output_sha256": "4d7905e53f47a4521ced8309b4d348afffe6b75dab864998462b4bc661dc3912"
+    },
+    {
+      "file": "stills-1s - keep/still-029.jpg",
+      "original_sha256": "fd7542fe4562d68e60d15b69611704ecf872f347acfae741ff84576e4c586ef2",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-495f6223-395a-4168-9e3f-125343dda7bf.png",
+      "output_sha256": "0377c26bebd6a17124abcaf624e6a0d8ea287927dac12f775ff77269ce8df600"
+    },
+    {
+      "file": "stills-1s - keep/still-033.jpg",
+      "original_sha256": "94d4ce326f6836452012fc88b2ff96ea3dee6c5bbd7bb0b7d3f86eeefc8ab39d",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-cb769aee-2cc0-4175-9163-9ae98eb1a994.png",
+      "output_sha256": "6cddcf5ba161e0ba5c5b34b0c0bacc4dfe3841fa548d288dcdd6dd88db30f39f"
+    },
+    {
+      "file": "stills-1s - keep/still-034.jpg",
+      "original_sha256": "a5d269fdd91849908cabc7be4c072504411f29e51f140e29ba0cfd71ef6ce918",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-21509a3b-72c3-4dec-8e29-18cbfd6e0ad0.png",
+      "output_sha256": "485cd26eba1e661108b32592aed81b93de7b5800dbcda10fae303675beaeb389"
+    },
+    {
+      "file": "stills-1s - keep/still-036.jpg",
+      "original_sha256": "bc79aff60ac70ee31e6353684ffb15426fca91a50c5dc77ea0bf22557554d0eb",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-63b6922c-1582-4cdc-ab00-6719318d2766.png",
+      "output_sha256": "d3ee493a246feee271f71b5a5ef39c07fca35d9d4a174c5c6f295ad37267ce02"
+    },
+    {
+      "file": "stills-1s - keep/still-039.jpg",
+      "original_sha256": "794d03698de180c30bc91e202776980ec0932dc8cab5ad3fd85e748b196dde5e",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-bcf0f56e-b423-432a-9aa1-1c653b61ac78.png",
+      "output_sha256": "b30d43d50ca8e7dbab8af9d0c3ab7a74c78ed0eb34f4e05d431a49153c99eb22"
+    },
+    {
+      "file": "stills-1s - keep/still-049.jpg",
+      "original_sha256": "861f8063d186a6e82dc1e4f4be1f174470d9ef3b1f624a3afeb7c46d82de0a41",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-5390e94c-7fd6-4310-aa1b-e2b924978e88.png",
+      "output_sha256": "92a36bf545d5e73e2a44c7185e502474c1bc180d6a6c30d84515831c35ec2b26"
+    },
+    {
+      "file": "stills-1s - keep/still-051.jpg",
+      "original_sha256": "97f526dc0115de6b71e0c3341022cfd91130a58eba561dcc00088b1fd3e5d1e3",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-9c0b826d-1953-4389-9d3b-f2547057175a.png",
+      "output_sha256": "9686f9487506f21a30c06a7e65f8dc7a15a45136b6ca50acddaaafa19d6984aa"
+    },
+    {
+      "file": "stills-1s - keep/still-052.jpg",
+      "original_sha256": "54fc94c437b44e796ed902913fe0cfb6412259fa3241f2aeb9a9c68d523d03da",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-6a9c6187-9184-42ca-ac5c-3f414174fc34.png",
+      "output_sha256": "bcf6fb4ce1351d6e6e0f6c2b3eb62ea319a6b7ed8ac256a300454420d7251539",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical preservation requirement: The original lower-left white rectangular caption box with the word 'KITCHEN' MUST remain fully visible, unchanged in its original location, size, white lettering and border. It is not part of DFH and must NOT be removed. Also keep the tan upper-left location label. Remove ONLY the upper-right DFH logo and its tagline. Preserve all other image content."
+    },
+    {
+      "file": "stills-1s - keep/still-056.jpg",
+      "original_sha256": "423589aced73336df27854eb59b89fd0f555284fe66ce19be6af79743c9acd1f",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-0d189a8b-950a-4fdd-b382-0495f2c6ca9d.png",
+      "output_sha256": "a8d60694304810530d16d4033a024d0103de0d9e374d7e2b4c4c2d595810c4fd",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"KITCHEN\" and its entire original white rectangular border exactly in their original location and size. Keep this caption and the tan upper-left location label visible. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-058.jpg",
+      "original_sha256": "260883661dad7ac52d1328872187cf4a811a8b9f7f1e51c94a3bd901ad201273",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-0a4001c0-a7d4-484f-b5ed-e2196b1dcefb.png",
+      "output_sha256": "08184edcc957c2537270ae5012554ea46f97b14adcebb74450d97925b0856b61",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"KITCHEN\" and its entire original white rectangular border exactly in their original location and size. Keep this caption and the tan upper-left location label visible. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-059.jpg",
+      "original_sha256": "dd498f5e775467ac667f2fb3455f07231ab09195792ab6fa210c747a68143aa4",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-a33a581a-b38f-4766-9aed-3c63701fee97.png",
+      "output_sha256": "e87f6c64b995319e42b1c8bfc628f1afe04fcd7773dfa27c954892be4c3f4f36",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"KITCHEN\" and its entire original white rectangular border exactly in their original location and size. Keep this caption and the tan upper-left location label visible. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-061.jpg",
+      "original_sha256": "ad8350398d52b31338f60441a12b7df57e87b4248b8fdcc48bc5957dfecb26b1",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-dc0f65bd-17f0-4f1f-a34a-f93c7c7db0f4.png",
+      "output_sha256": "2cacbf2111d5e439d0ee8147ca93c76d9e9a4a8de435be59c9c7f6f99d305e32",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"KITCHEN\" and its entire original white rectangular border exactly in their original location and size. Keep this caption and the tan upper-left location label visible. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-063.jpg",
+      "original_sha256": "225fe7597d306968b003f7db45f77ff55927ff3401f8e9d536647f1e8670e4bf",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-1df826da-9dfa-4dcb-867d-a812cc841bd5.png",
+      "output_sha256": "9b841f9b7635b6abb74d760b0452fa816f29c7d36923f20b47531d3b389dfded",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"HEIGHT ADJUSTABLE BENCHTOP\" and its entire original white rectangular border exactly in their original location and size. Keep this caption and the tan upper-left location label visible. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-072.jpg",
+      "original_sha256": "539035ef720f5db0ab39383bdcaeb090de2e8123728b087326ce300043ed4c0c",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-6b56433f-4b4c-4b55-82f0-2241d1e04f34.png",
+      "output_sha256": "d3c4cb4ccbeb557784e61e43ef0614d9a199ddd290821a9442da3cff54364c0a",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"LIVING AREA\" and its entire original white rectangular border exactly in their original location and size. Keep this caption and the tan upper-left location label visible. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-075.jpg",
+      "original_sha256": "7e7a844967718f649a190be8911601fd7857b7e7dc36d4b7a8df3e6dda28fc37",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-3b11cbe3-bc7b-4da6-8885-dc6527e5e607.png",
+      "output_sha256": "7f1d2ee25cf29f0413d12135072ec713a217f09f0446701cc58d05168eb0f2ef",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"DINING AREA\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-077.jpg",
+      "original_sha256": "009d931494b4662e2abd54ff7b1ba84f48358081a81e9f137beac90611e990c1",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-3df0adde-3169-47dd-8e63-d2ab924ee0a0.png",
+      "output_sha256": "17568cd46b85653a94505ba8214fadb483b42b6de3a2f74d25a1cfa87f7369e7",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"DINING AREA\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-078.jpg",
+      "original_sha256": "94cde6fefd0a38014c49ff522992acb07f9d99c42260a6bcdd784dce8245ed95",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-cf051176-142b-4a90-9e11-5632b5e04ef1.png",
+      "output_sha256": "06b4a9d1a9207744e9fc893a24cce4542388c830d3c3dfc49871fdc23b83580f",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"DINING AREA\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-080.jpg",
+      "original_sha256": "dcde9f39157670d09f0476ca89320724843358316a2b35e1dfc5af295ac56dc9",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-a298ba9d-2e08-4065-b537-a47b3d9f0322.png",
+      "output_sha256": "9419e8d1aa5cb8b0ce7476cbbc4178cf62e8887bd4f470af94e6bbb4354550d5",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"PARTICIPANT BEDROOM TWO WITH ENSUITE\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-085.jpg",
+      "original_sha256": "e5f5e955e68de90744da426811279675cefa9f252810e37e335563d1f82ba159",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-7521dfde-d498-48f6-bb67-ef27dd1f6f4b.png",
+      "output_sha256": "f3409426e48ca22e73cd3c7e3672fd100eafbbc756fc1c79f9ee3483dc85291f",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"PARTICIPANT BEDROOM TWO WITH ENSUITE\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-086.jpg",
+      "original_sha256": "9a0dac8c7dd5b2e2b5e80ce7a53effeb1420eb8e5558988d900cba8d383812e5",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-ab352383-bbc7-4264-9611-d9e4d1a3793e.png",
+      "output_sha256": "4e31451fc18755712b11a5c93d9ba1f0a405c021c99291d95e6a3ca7c59b6b90",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"PARTICIPANT BEDROOM TWO WITH ENSUITE\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-087.jpg",
+      "original_sha256": "fb6feac7e17fcd9a250b1c44d58498e3e79c2d7d869c7cdf3e915bf54b260f44",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-fe7d1544-8ff9-4c4e-b1f8-c9c0bf25bd14.png",
+      "output_sha256": "d4fee42d4bd5d81b4016b4bbf13f7b7cf22545b47c240904578ee54c04af4bf7",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"PARTICIPANT BEDROOM TWO WITH ENSUITE\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-091.jpg",
+      "original_sha256": "f6f2d945e4188176e865293ce6f68244799327bf5c0c517be0497b51d2652115",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-8047b459-1059-42da-b98c-b78c059f537b.png",
+      "output_sha256": "427f63906c92a6793e0e27b41546f2f6c4a35cf008f703442dda654f811ba7e9",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed."
+    },
+    {
+      "file": "stills-1s - keep/still-096.jpg",
+      "original_sha256": "2f79cb3a067549e30643f7075317c4fe347f2d7d20586b4d01273390b705b8ba",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-e60e86e0-82af-4574-8847-25a88272a5ec.png",
+      "output_sha256": "eff0f2bd6ff469aeeec426ed01b51df8a3fa0671523f443f8dc2cc2f340328f4",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed."
+    },
+    {
+      "file": "stills-1s - keep/still-097.jpg",
+      "original_sha256": "330d8a0207fadb992af1abd0b663d1c1d6bb3b367e8060326104b627b0e173e1",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-f0411781-4976-457a-b9b5-54eac69efd24.png",
+      "output_sha256": "7553b822b6e83cf065a617443b69a61c6600c4666bf9723e26ec8c2c4ce9cd85",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"ALFRESCO & BACKYARD WITH LANDSCAPED GARDENS\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-100.jpg",
+      "original_sha256": "8ba5e7d88069e9012f4f7617b0b9d8da1ff3ae63c0cfbb67876675589c762f76",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-88b1da2f-3beb-49a1-858a-da67a2514808.png",
+      "output_sha256": "17b61b3e4f413f4073268a887a715d8dbbfaa319f72e558b0326941bae6d87b8",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"ALFRESCO & BACKYARD WITH LANDSCAPED GARDENS\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-101.jpg",
+      "original_sha256": "2840f8c907a393b450c2c2ac94be70ec71f108dbe3e8ca5931632764bcab555a",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-ccad8d34-19b8-47e2-9b87-d9f8466cbc39.png",
+      "output_sha256": "c7d91ad04294d896e30ae4fe6ad36202a07bbe15da7256f4cabba420d64cdaac",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"ALFRESCO & BACKYARD WITH LANDSCAPED GARDENS\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-103.jpg",
+      "original_sha256": "a74596a78294ed2b33d66dd2ac8adef04230b2aa2718d8341c2ff102ccfd4347",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-4a67be5a-1eb3-42b5-aa24-753ed9e7072f.png",
+      "output_sha256": "e20cc404190ec6d003ac434b2f73a00639a6b79e2d71d7ea596ba55e4d384eb0",
+      "prompt_override": "Use case: precise-object-edit\nAsset type: original-resolution cropped repair patch for a real estate photograph.\nInput image: the sole supplied image is the edit target, a 1536 x 1024 pixel crop of the original photograph.\nPrimary request: Completely remove the upper-right DFH overlay: all large red and white letters, the thin red horizontal rule, and the entire 'Disability Forever Homes' tagline.\nLocal reconstruction: Behind the logo are tan-grey bricks, the dark roof gutter and a dark blue metal clothesline rail. Continue the existing brick courses and mortar lines precisely. Keep the diagonal clothesline rail straight, in its exact position and thickness, with the same highlight and shadow. Do not bend, shift, replace or redesign any structural edge.\nConstraints: Repair ONLY the pixels occupied by the DFH overlay and their immediate edges. Preserve all other visible photographic information exactly: viewpoint, composition, object positions, structure, materials, colour, exposure, texture, sharpness and grain. Do not beautify, denoise, sharpen, repaint or smooth the rest of the image.\nOutput: Return the complete supplied crop at 1536 x 1024 pixels if possible, with identical framing and no cropping or scaling. No added text or objects. This will be used as a small local patch on the original 4K photo.",
+      "previous_revisions": [
+        {
+          "output_sha256": "d06d6b6d1476c6ad0518bd434dae6db11efa0cc23f58c5c6fb931d4b048ae1d6",
+          "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-e4a65624-4a79-406b-a429-34c702e037d8.png",
+          "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"ALFRESCO & BACKYARD WITH LANDSCAPED GARDENS\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+        }
+      ],
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "edit_method": "Local ImageGen logo repair composited onto the original-resolution photo; original pixels retained outside feathered patch before JPEG encoding",
+      "repair_record": "four-repair-record.json"
+    },
+    {
+      "file": "stills-1s - keep/still-105.jpg",
+      "original_sha256": "a9f4323fad2c039409f66830682ee0260e41f8197691339ea504976c40371886",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-0bd7b55c-92c9-425c-9a0e-ff383e137723.png",
+      "output_sha256": "8a4d2c3f19b6676cde48253a457cd1a139eb013d37c717e85109c57eda0d2461",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"ALFRESCO & BACKYARD WITH LANDSCAPED GARDENS\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-108.jpg",
+      "original_sha256": "a1f903c07a0a9371d84035ecc427b6d8dfcc81f9292fee58ffc477b1f5e6da1b",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-3b2b81a3-7228-4c61-a1bb-7fab956dc38c.png",
+      "output_sha256": "14e84641d599148024c8920aa1c1dcfe3964e166f37422a78db5ad8c5f9f91f2",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"DOUBLE CAR GARAGE WITH BACKUP BATTERY\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-110.jpg",
+      "original_sha256": "6fcf4dad8a955fb6367dab9bccb5c3bd940e644d4bd19d9d1312c11b7b7ac733",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-5ef7db58-b3be-4671-b4ea-4e598d9ad6b3.png",
+      "output_sha256": "980be36dbb821bbd173b8d118ab39b6ec34883b10605c5c00f9c82231515a041",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"DOUBLE CAR GARAGE WITH BACKUP BATTERY\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-113.jpg",
+      "original_sha256": "24fb7be88152866d32a5a6a6330b76d5bfa32b559ad352e49213b67d1a1f4b6f",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-7cc1489e-89db-421f-a7ee-d802b98b79d6.png",
+      "output_sha256": "04bbdcebf401a7ba45a17b40494e5c30e39258ced75438915151738f58fa2417",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"LAUNDRETTE\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-115.jpg",
+      "original_sha256": "afa07a30d185896c82ca162bd8f0c1a4f92aadb0df4f357a9cd9e17e6ac2950c",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-62a9e90f-ac75-4773-81e1-fee09195285c.png",
+      "output_sha256": "ece5f24038d5a5200c1d25c5e4fa5117e524a27f26e11742343b9d13074b00b6",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"LAUNDRETTE\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-116.jpg",
+      "original_sha256": "b924e105f5fb41a4a7f3c11b6023b61b2125f553804bf57f2cf78a3841339dad",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-c808c278-2c38-4be5-b607-09d6203cf1f2.png",
+      "output_sha256": "8e8bc4e0d1a8721dc1e326d980942438b7d720e056e6a7e053d5e10647f955a4",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"LAUNDRETTE\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-119.jpg",
+      "original_sha256": "8d0d85fd8e64adf2378ae301c6d2cd5dd77fe82b94f4ffec62eceeb98c170b94",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-2c377087-8464-4bdf-9040-d00f658eadec.png",
+      "output_sha256": "183ee60d78f917445554cc1b217351913c9fd00ed597fbdea3bcc9d5c0b6ee94",
+      "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"AIR CONDITIONING THROUGHOUT\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+    },
+    {
+      "file": "stills-1s - keep/still-121.jpg",
+      "original_sha256": "2980470b24a12675dcbc581118ad3655bfaa5e7a3c9b33f9fda5995728d8dd8f",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-127701a6-f2ee-4606-b8dc-dc63fe9b2e99.png",
+      "output_sha256": "3ce807fa141c2b9f2948ffca0f6a95abf384cc848831a0be093abb4f1fe6a8ec",
+      "prompt_override": "Use case: precise-object-edit\nAsset type: original-resolution cropped repair patch for a real estate photograph.\nInput image: the sole supplied image is the edit target, a 1536 x 1024 pixel crop of the original photograph.\nPrimary request: Completely remove the upper-right DFH overlay: all large red and white letters, the thin red horizontal rule, and the entire 'Disability Forever Homes' tagline.\nLocal reconstruction: Behind the logo is only the same plain grey-green painted wall. Continue its subtle existing illumination gradient and very fine photographic texture. No objects, patterns, seams, text or rectangular patches.\nConstraints: Repair ONLY the pixels occupied by the DFH overlay and their immediate edges. Preserve all other visible photographic information exactly: viewpoint, composition, object positions, structure, materials, colour, exposure, texture, sharpness and grain. Do not beautify, denoise, sharpen, repaint or smooth the rest of the image.\nOutput: Return the complete supplied crop at 1536 x 1024 pixels if possible, with identical framing and no cropping or scaling. No added text or objects. This will be used as a small local patch on the original 4K photo.",
+      "previous_revisions": [
+        {
+          "output_sha256": "d029e2844e9d3e82f6605960f8fc8f3a8a86906e1ac54b80e7eb25c5e32f252d",
+          "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-b998b12b-f0ba-4995-bb96-99e1ca793cd8.png",
+          "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"SECURITY ALARM\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+        }
+      ],
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "edit_method": "Local ImageGen logo repair composited onto the original-resolution photo; original pixels retained outside feathered patch before JPEG encoding",
+      "repair_record": "four-repair-record.json"
+    },
+    {
+      "file": "stills-1s - keep/still-123.jpg",
+      "original_sha256": "ccc4909c1d2dccec73d793b45584bebef8b50a936334ab5c45dc01d3f1e23e3b",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-c4029ca3-bf32-4246-bee2-334a8e076000.png",
+      "output_sha256": "c9f981e7260810d1179df07c2929ad1ca3616885a12c9a8aeac80e44191194e4",
+      "prompt_override": "Use case: precise-object-edit\nAsset type: original-resolution cropped repair patch for a real estate photograph.\nInput image: the sole supplied image is the edit target, a 1536 x 1024 pixel crop of the original photograph.\nPrimary request: Completely remove the upper-right DFH overlay: all large red and white letters, the thin red horizontal rule, and the entire 'Disability Forever Homes' tagline.\nLocal reconstruction: Behind the logo are existing neighboring houses, dark tiled roofs, solar panels, brickwork and pale walls. Reconstruct only the occluded small areas by continuing the visible roof planes, tile patterns, solar-panel edges, building lines and shadows naturally. Keep every visible edge, window, fence, roofline and object in its exact location; do not redesign houses.\nConstraints: Repair ONLY the pixels occupied by the DFH overlay and their immediate edges. Preserve all other visible photographic information exactly: viewpoint, composition, object positions, structure, materials, colour, exposure, texture, sharpness and grain. Do not beautify, denoise, sharpen, repaint or smooth the rest of the image.\nOutput: Return the complete supplied crop at 1536 x 1024 pixels if possible, with identical framing and no cropping or scaling. No added text or objects. This will be used as a small local patch on the original 4K photo.",
+      "previous_revisions": [
+        {
+          "output_sha256": "2766f620a2907f19331f0854dc15b56c04bc21e204ea70e8c04c78bf9ff2fd07",
+          "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-bf1cb333-f3b4-4459-952d-33aae235d8e7.png",
+          "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"GATHERING GROVE PLAYGROUND\nGROVE WETLANDS\n50M AWAY\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+        }
+      ],
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "edit_method": "Local ImageGen logo repair composited onto the original-resolution photo; original pixels retained outside feathered patch before JPEG encoding",
+      "repair_record": "four-repair-record.json"
+    },
+    {
+      "file": "stills-1s - keep/still-126.jpg",
+      "original_sha256": "0becc586f254763ecb6f0ebc4c02908ed04533c2182cbae24ad220ea99d77f5a",
+      "status": "replaced",
+      "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-98a71eae-275d-4021-a855-eb88dafcf9be.png",
+      "output_sha256": "4539897648d81598ecb0545eb5b9ed4433e9a729659008be191295d88f241315",
+      "prompt_override": "Use case: precise-object-edit\nAsset type: original-resolution cropped repair patch for a real estate photograph.\nInput image: the sole supplied image is the edit target, a 1536 x 1024 pixel crop of the original photograph.\nPrimary request: Completely remove the upper-right DFH overlay: all large red and white letters, the thin red horizontal rule, and the entire 'Disability Forever Homes' tagline.\nLocal reconstruction: Behind the logo is only clear blue sky. Continue the existing blue-to-hazy-blue vertical gradient smoothly with no clouds or visible seams. Preserve the horizon, rooftops and all shop signs below exactly.\nConstraints: Repair ONLY the pixels occupied by the DFH overlay and their immediate edges. Preserve all other visible photographic information exactly: viewpoint, composition, object positions, structure, materials, colour, exposure, texture, sharpness and grain. Do not beautify, denoise, sharpen, repaint or smooth the rest of the image.\nOutput: Return the complete supplied crop at 1536 x 1024 pixels if possible, with identical framing and no cropping or scaling. No added text or objects. This will be used as a small local patch on the original 4K photo.",
+      "previous_revisions": [
+        {
+          "output_sha256": "5752bfda095c999a6c9727374e744634ff406c081e83e4ce577a473ad9785f83",
+          "generated_source": "/home/al/.codex/generated_images/01a13825-f852-7052-8990-e0acf801da31/exec-de53ecfd-63cc-4536-979f-c6ca491f726b.png",
+          "prompt_override": "Use case: precise-object-edit\nInput image: the sole edit target supplied by referenced_image_paths.\nPrimary request: Remove only the DFH logo in the upper-right corner, including all large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Seamlessly reconstruct the background hidden behind the logo by continuing nearby surfaces, edges, textures, shadows, and lighting naturally.\nConstraints: Preserve the original complete framing, aspect ratio, camera viewpoint, scene geometry, objects, colors, exposure, and all details outside that small upper-right logo area. Preserve every other existing label, caption, graphic, and text exactly, especially the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left. Keep source resolution if possible. No cropping, added objects, new text, or other retouching. Output the same photograph with only that upper-right DFH mark removed.\nCritical: Preserve the lower-left white caption \"TARNEIT CENTRAL\nSHOPPING CENTRE\n3KM AWAY\" with its original line breaks and existing border exactly as pictured, including any gaps in the border. Keep it in its original location and size, and keep the tan upper-left location label. Remove ONLY the upper-right DFH mark."
+        }
+      ],
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "edit_method": "Local ImageGen logo repair composited onto the original-resolution photo; original pixels retained outside feathered patch before JPEG encoding",
+      "repair_record": "four-repair-record.json"
+    }
+  ],
+  "validation": {
+    "all_images_decoded": true,
+    "hashes_verified": 53,
+    "replaced": 50,
+    "unchanged_without_dfh_logo": 3,
+    "pending": 0,
+    "edited_dimensions": {
+      "1672x941": 46,
+      "3840x2160": 4
+    },
+    "base_prompt_file": "batch-prompt.txt",
+    "initial_test_prompt_file": "prompt.txt",
+    "original_production_directory_modified": false,
+    "four_high_resolution_repairs": "four-repair-record.json"
+  }
+}

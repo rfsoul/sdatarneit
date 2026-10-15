@@ -1,0 +1,8 @@
+Mode: built-in image_gen image editing
+Source: ../stills-1s - keep/still-023.jpg
+Output: still-023-no-dfh.png
+
+Use case: precise-object-edit
+Input image: edit target, a bathroom photograph.
+Primary request: Remove only the DFH logo in the upper-right corner, including the large red/white DFH letters, the red horizontal rule, and the entire 'Disability Forever Homes' tagline. Reconstruct the wall and vertical door-frame surfaces behind the logo, continuing their existing straight edges, shadows, texture, and lighting naturally.
+Constraints: Preserve the complete original framing and 2048x1152 dimensions. Preserve the bathroom, fixtures, glass, reflections, exposure, colors, and all other image details. Keep the tan SOCIAL STREET TARNEIT VICTORIA, 3029 label in the upper-left exactly unchanged. Limit changes to the small upper-right area occupied by the removed logo. No cropping, no new text or objects, no additional retouching.

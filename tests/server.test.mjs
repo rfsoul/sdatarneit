@@ -85,6 +85,7 @@ test('pages retain navigation, distinct SEO metadata, media and confirmed vacanc
   assert.equal((html.match(/<h1>/g)||[]).length,1);assert.match(html,/<nav.*Main navigation/);assert.match(html,/name="description"/);
   const title=html.match(/<title>(.*?)<\/title>/)[1],description=html.match(/<meta name="description" content="([^"]*)"/)[1];assert.ok(!titles.has(title));titles.add(title);assert.ok(!descriptions.has(description));descriptions.add(description);
   assert.match(html,/<link rel="canonical" href="https:\/\/sdatarneit\.au\//);
+  assert.doesNotMatch(html,/\bDFH\b|Disability Forever Homes|property[- ]manager|does not provide SIL/i);
  }
  const home=await readFile(path.join(root,'index.html'),'utf8');const enquiries=await readFile(path.join(root,'enquiries/index.html'),'utf8');
  assert.match(home,/two participant vacancies available/);assert.match(enquiries,/Two participant vacancies/);assert.match(home,/roll-in showers/);
@@ -94,7 +95,7 @@ test('pages retain navigation, distinct SEO metadata, media and confirmed vacanc
  assert.ok(home.match(/<meta name="description" content="([^"]*)"/)[1].length<155);
  assert.doesNotMatch(home,/<video/);assert.doesNotMatch(home,/<(?:script|img)[^>]+https?:\/\//);
  const features=await readFile(path.join(root,'the-home/index.html'),'utf8');assert.match(features,/three shower bathrooms in total/);assert.match(features,/roll-in shower/);assert.match(features,/step-free access/);assert.match(features,/supports a future hoist/);
- const support=await readFile(path.join(root,'sda-and-support/index.html'),'utf8');assert.match(support,/Improved Liveability, Fully Accessible/);assert.match(support,/whether Improved Liveability, Fully Accessible or a different funded household size may be considered/);assert.match(support,/How many participant vacancies are available/);assert.match(support,/What does High Physical Support mean/);assert.match(support,/Are pets welcome/);assert.match(support,/MTA or an ongoing lease/);assert.match(support,/id="support-professionals"/);assert.match(support,/does not provide SIL/);
+ const support=await readFile(path.join(root,'sda-and-support/index.html'),'utf8');assert.match(support,/Improved Liveability, Fully Accessible/);assert.match(support,/whether Improved Liveability, Fully Accessible or a different funded household size may be considered/);assert.match(support,/How many participant vacancies are available/);assert.match(support,/What does High Physical Support mean/);assert.match(support,/Are pets welcome/);assert.match(support,/MTA or an ongoing lease/);assert.match(support,/id="support-professionals"/);assert.match(support,/Talk with Al/);
  const local=await readFile(path.join(root,'living-in-tarneit/index.html'),'utf8');assert.match(local,/Julia Gillard Library Tarneit/);assert.match(local,/Transport Victoria/);assert.match(local,/nearby suburbs/);
  const walkthrough=await readFile(path.join(root,'walkthrough/index.html'),'utf8');assert.match(walkthrough,/preload="none"/);assert.match(walkthrough,/room-by-room overview/);assert.match(walkthrough,/illustrative floor plan/);
  assert.match(enquiries,/>Send enquiry<\/button>/);
